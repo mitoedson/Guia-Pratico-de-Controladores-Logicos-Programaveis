@@ -6,7 +6,7 @@ Este repositório complementa o material teórico e acadêmico da disciplina de 
 
 ## Sumário
 
-1. [Fundamentos](/docs/01-fundamentos/index.md)
+1. Fundamentos
 2. Linguagens da IEC 61131-3
 3. Ladder (LD)
 4. Diagrama de Blocos Funcionais (FBD)
@@ -56,11 +56,19 @@ As páginas do guia citam as fontes no texto pelo sistema autor-data (NBR 10520)
 
 ABB. **Task configuration**: ajuda online de programação de CLP. [S. l.]: ABB, [s. d.]. Disponível em: https://help.plc.abb.com/_cds_f_task_configuration.html. Acesso em: 21 nov. 2026.
 
+______. **LD Element: Coil**. *In*: ABB. **Automation Builder**: ajuda online: programação com CODESYS. [S. l.]: ABB, 4 nov. 2026. Disponível em: https://en.help.plc.abb.com/_cds_LD_element_coil.html. Acesso em: 21 nov. 2026.
+
 AMERICAN NATIONAL STANDARDS INSTITUTE. **IEC 61131-3:2013**: programmable controllers: part 3: programming languages. [S. l.]: ANSI Webstore, [s. d.]. Disponível em: https://webstore.ansi.org/Standards/IEC/IEC61131Ed2013. Acesso em: 21 nov. 2026.
 
 BOLTON, W. **Programmable logic controllers**. 6. ed. Oxford: Newnes, 2015.
 
-CODESYS GROUP. **Task configuration**. *In*: CODESYS GROUP. **CODESYS Essentials**: CODESYS Online Help, versão 3.5.22.0. Kempten: CODESYS Group, [s. d.]. Disponível em: https://content.helpme-codesys.com/en/CODESYS%20Development%20System/_cds_f_task_configuration.html. Acesso em: 21 nov. 2026.
+CODESYS GROUP. **Task configuration**. *In*: CODESYS GROUP. **CODESYS Essentials**: CODESYS Online Help, versão 3.5.22.0. Kempten: CODESYS Group, [s. d.]a. Disponível em: https://content.helpme-codesys.com/en/CODESYS%20Development%20System/_cds_f_task_configuration.html. Acesso em: 21 nov. 2026.
+
+______. **Basics**. *In*: CODESYS GROUP. **CODESYS 4**: ajuda online: programação em diagrama ladder. Kempten: CODESYS Group, [s. d.]b. Disponível em: https://content.helpme-codesys.com/en/CODESYS%204/_c4ld_basics.html. Acesso em: 21 nov. 2026.
+
+______. **Adapting the elements**. *In*: CODESYS GROUP. **CODESYS 4**: ajuda online: programação em diagrama ladder. Kempten: CODESYS Group, [s. d.]c. Disponível em: https://content.helpme-codesys.com/en/CODESYS%204/_c4ld_edit_elements.html. Acesso em: 21 nov. 2026.
+
+ELSEVIER. **Programmable logic controllers**. 6th edition. [S. l.]: Elsevier, 2015. Disponível em: https://shop.elsevier.com/books/catalog/isbn/9780128029299. Acesso em: 21 nov. 2026.
 
 HANSSEN, D. H. **Programmable logic controllers**: a practical approach to IEC 61131-3 using CODESYS. Tradução: Dan Lufkin. Chichester: John Wiley & Sons, 2015. ISBN 978-1-118-94924-5.
 
@@ -84,7 +92,15 @@ ROCKWELL AUTOMATION. **PLC-5 programmable controllers**: instruction set referen
 
 ______. **Studio 5000 Logix Designer**: release notes, versão 38.00.00. [S. l.]: Rockwell Automation, set. 2025. Disponível em: https://compatibility.rockwellautomation.com/GeneratedReleaseNote.aspx?v1=66022. Acesso em: 21 nov. 2026.
 
-______. **Tasks**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]. Disponível em: https://www.rockwellautomation.com/en-ua/docs/studio-5000-logix-designer/38-00/contents-ditamap/studio-5000-logix-designer/tasks--programs--and-routines/tasks.html. Acesso em: 21 nov. 2026.
+______. **Tasks**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]a. Disponível em: https://www.rockwellautomation.com/en-ua/docs/studio-5000-logix-designer/38-00/contents-ditamap/studio-5000-logix-designer/tasks--programs--and-routines/tasks.html. Acesso em: 21 nov. 2026.
+
+______. **Examine if Closed (XIC)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]b. Disponível em: https://www.rockwellautomation.com/en-fi/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1/examine-if-closed--xic-1.html. Acesso em: 21 nov. 2026.
+
+______. **Output Energize (OTE)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]c. Disponível em: https://www.rockwellautomation.com/en-fi/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1/output-energize--ote-11.html. Acesso em: 21 nov. 2026.
+
+______. **Output Latch (OTL)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]d. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1/output-latch--otl-1.html. Acesso em: 21 nov. 2026.
+
+______. **Bit instructions**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]e. Disponível em: https://www.rockwellautomation.com/en-gb/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1.html. Acesso em: 21 nov. 2026.
 
 SCHNEIDER ELECTRIC. **Modicon M241 Logic Controller**: programming guide. EIO0000001432.07. [S. l.]: Schneider Electric, mar. 2018.
 

@@ -54,7 +54,9 @@ nav:
       - Visão geral: 01-fundamentos/index.md
       - Ciclo de varredura: 01-fundamentos/ciclo-de-varredura.md
   - 2. IEC 61131-3: 02-iec-61131-3/index.md
-  - 3. Ladder (LD): 03-ladder/index.md
+  - 3. Ladder (LD):
+      - Visão geral: 03-ladder/index.md
+      - Contatos e bobinas: 03-ladder/contatos-e-bobinas.md
   - 4. FBD: 04-fbd/index.md
   - 5. Lógica e sequenciamento: 05-logica-sequenciamento/index.md
   - 6. Acionamentos e movimento: 06-acionamentos-movimento/index.md

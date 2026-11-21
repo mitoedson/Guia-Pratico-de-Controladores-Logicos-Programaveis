@@ -90,7 +90,7 @@ lampada := alarme_nivel OR modo_manual;
 | CODESYS | Tarefas cíclica, livre ou por evento (HANSSEN, 2015), com *watchdog* definido por tarefa (3S-SMART SOFTWARE SOLUTIONS, 2007). | Programas diferentes podem ter ciclos diferentes. |
 | Schneider Modicon M241 | Tarefas cíclica, livre, por evento e por evento externo. Os POUs de uma tarefa são executados na ordem em que aparecem na lista (SCHNEIDER ELECTRIC, 2018). | O *watchdog* tem dois parâmetros: tempo e sensibilidade, esta definindo quantas expirações são toleradas antes de o controlador parar o programa (SCHNEIDER ELECTRIC, 2018). |
 | Siemens S7-1200/1500 | O sistema operacional atualiza a imagem de processo e chama o programa de usuário (SIEMENS, 2018). | Se o tempo de monitoração de ciclo estoura uma vez, o S7-1200 segue em RUN e o S7-1500 vai para STOP quando o OB80 não está configurado (SIEMENS, 2018). OBs de interrupção cíclica vêm com ciclo padrão de 100 ms (SIEMENS, 2021). |
-| Rockwell Logix 5000 (Studio 5000) | Tarefas contínua, periódica e por evento. A *MainTask* nasce contínua e tem a menor prioridade. Os programas de uma tarefa executam na ordem em que aparecem no organizador do controlador (ROCKWELL AUTOMATION, [s. d.]). | Em tarefa periódica, o período vai de 1 ms a 2.000 s (padrão de 10 ms) e deve ser maior que a soma dos tempos de execução dos programas. Cada tarefa tem *watchdog* próprio, com padrão de 500 ms (ROCKWELL AUTOMATION, [s. d.]). |
+| Rockwell Logix 5000 (Studio 5000) | Tarefas contínua, periódica e por evento. A *MainTask* nasce contínua e tem a menor prioridade. Os programas de uma tarefa executam na ordem em que aparecem no organizador do controlador (ROCKWELL AUTOMATION, [s. d.]a). | Em tarefa periódica, o período vai de 1 ms a 2.000 s (padrão de 10 ms) e deve ser maior que a soma dos tempos de execução dos programas. Cada tarefa tem *watchdog* próprio, com padrão de 500 ms (ROCKWELL AUTOMATION, [s. d.]a). |
 | Rockwell PLC-5 | Usa tabelas de imagem de entrada e de saída (por exemplo, `O:013/01`) e executa o programa em varreduras (ROCKWELL AUTOMATION, 1998). | |
 | WEG WLP (Ladder) | As linhas são executadas em ordem fixa, a partir da primeira (WEG, 2016). | A bobina imediata grava a saída no momento da execução, ao contrário da bobina normal, que grava só no fim do ciclo (WEG, 2016). |
 
@@ -103,8 +103,8 @@ Cada fonte citada acima foi comparada com a versão mais recente que encontrei (
 | IEC 61131-3, 2ª ed. (2003) | 3ª ed., de 20 fev. 2013 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013), e 4ª ed., de 22 maio 2025 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025). | A 3ª edição cancela e substitui a de 2003 e é uma extensão compatível dela (AMERICAN NATIONAL STANDARDS INSTITUTE - ANSI, [s. d.]). A 4ª edição inclui cadeias UTF-8 e lista, no Anexo B, os recursos adicionados, removidos ou obsoletos em relação à de 2013 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025). Não consegui conferir se a definição do `R_TRIG` mudou, porque o texto da norma é pago. |
 | Siemens, Programming Guideline V1.6 (12/2018) | Não encontrei versão posterior do guideline. | Os valores de monitoração de ciclo vêm dessa versão. Confira na ajuda do TIA Portal em uso. |
 | Schneider, Programming Guide EIO0000001432.07 (03/2018) | EIO0000003059, versão 10, de 1 abr. 2026 (SCHNEIDER ELECTRIC, 2026). | Não abri o PDF da versão 10. Na ajuda online do Machine Expert, a sensibilidade do *watchdog* é definida como o número de exceções que precisam ocorrer antes de o controlador detectar um erro de aplicação (SCHNEIDER ELECTRIC, [s. d.]a), redação diferente da usada em 2018. Os eventos externos associáveis a uma tarefa, conforme o controlador, são borda de subida em entrada avançada, limiares do HSC, parada do HSC e sincronismo CAN (SCHNEIDER ELECTRIC, [s. d.]b). |
-| Rockwell, ajuda do Studio 5000, versão 37.00 | Versão 38.00, lançada em set. 2025 (ROCKWELL AUTOMATION, 2025). | A página "Tasks" da versão 38.00 traz os mesmos valores citados: período de 1 ms a 2.000 s com padrão de 10 ms, *watchdog* padrão de 500 ms e programas executados na ordem do organizador do controlador (ROCKWELL AUTOMATION, [s. d.]). |
-| CODESYS: manual 2.3 (2007) e Hanssen (2015) | Ajuda online do CODESYS V3.5.22.0 (CODESYS GROUP, [s. d.]). | Além de cíclica, livre e por evento, existe tarefa disparada por status (CODESYS GROUP, [s. d.]). Em uma ajuda baseada no CODESYS V3 hospedada pela ABB, todas as tarefas compartilham uma única imagem de processo, consistente para apenas uma tarefa, e a aplicação deve copiar entradas e saídas para um local seguro em caso de conflito (ABB, [s. d.]). |
+| Rockwell, ajuda do Studio 5000, versão 37.00 | Versão 38.00, lançada em set. 2025 (ROCKWELL AUTOMATION, 2025). | A página "Tasks" da versão 38.00 traz os mesmos valores citados: período de 1 ms a 2.000 s com padrão de 10 ms, *watchdog* padrão de 500 ms e programas executados na ordem do organizador do controlador (ROCKWELL AUTOMATION, [s. d.]a). |
+| CODESYS: manual 2.3 (2007) e Hanssen (2015) | Ajuda online do CODESYS V3.5.22.0 (CODESYS GROUP, [s. d.]a). | Além de cíclica, livre e por evento, existe tarefa disparada por status (CODESYS GROUP, [s. d.]a). Em uma ajuda baseada no CODESYS V3 hospedada pela ABB, todas as tarefas compartilham uma única imagem de processo, consistente para apenas uma tarefa, e a aplicação deve copiar entradas e saídas para um local seguro em caso de conflito (ABB, [s. d.]). |
 | WEG, WLP V10.00 (06/2016) | Não encontrei manual do WLP posterior à V10.00. | Nenhuma mudança verificada (WEG, 2016). |
 | PLCopen, Coding Guidelines v1.0 (20 abr. 2016) | Não encontrei versão posterior. | Nenhuma mudança verificada (PLCOPEN, 2016). |
 | Jack, versão 5.1 (2008) | Versão 6.0: a página de venda da edição antiga a descreve como substituída pela 6.0 (JACK, [s. d.]). | Não consegui abrir a versão 6.0. A afirmação sobre saída repetida em Ladder vem da versão 5.1 e precisa ser conferida na nova. |
@@ -122,17 +122,17 @@ Cada fonte citada acima foi comparada com a versão mais recente que encontrei (
 
 1. Um CLP tem ciclo de 30 ms. Qual é a frequência máxima de pulsos que ele consegue detectar, no melhor caso?
 
-    "Resposta"
+    ??? note "Resposta"
         Um pulso por ciclo, no máximo: 1 / 0,03 s ≈ 33 Hz. É o mesmo raciocínio do exemplo de Bolton (2015). Na prática, o pulso também precisa durar mais que o ciclo.
 
 2. Com o mesmo ciclo de 30 ms, qual é o atraso máximo aproximado entre a mudança de uma entrada e a atuação da saída correspondente?
 
-    "Resposta"
+    ??? note "Resposta"
         Pela dedução apresentada acima, cerca de dois ciclos, ou seja, 60 ms, sem contar filtros de entrada e atrasos dos módulos.
 
 3. No CODESYS, crie o programa `Contador`, simule o sensor com uma variável e altere o intervalo da tarefa cíclica. Observe o que acontece com pulsos mais curtos que o intervalo.
 
-"Status de validação"
+!!! note "Status de validação"
     Testado em: não testado. Os exemplos aguardam validação no CODESYS.
 
 Fontes: ver [Referências](../99-referencias/index.md).
