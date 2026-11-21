@@ -122,17 +122,17 @@ Cada fonte citada acima foi comparada com a versão mais recente que encontrei (
 
 1. Um CLP tem ciclo de 30 ms. Qual é a frequência máxima de pulsos que ele consegue detectar, no melhor caso?
 
-    ??? note "Resposta"
+    "Resposta"
         Um pulso por ciclo, no máximo: 1 / 0,03 s ≈ 33 Hz. É o mesmo raciocínio do exemplo de Bolton (2015). Na prática, o pulso também precisa durar mais que o ciclo.
 
 2. Com o mesmo ciclo de 30 ms, qual é o atraso máximo aproximado entre a mudança de uma entrada e a atuação da saída correspondente?
 
-    ??? note "Resposta"
+    "Resposta"
         Pela dedução apresentada acima, cerca de dois ciclos, ou seja, 60 ms, sem contar filtros de entrada e atrasos dos módulos.
 
 3. No CODESYS, crie o programa `Contador`, simule o sensor com uma variável e altere o intervalo da tarefa cíclica. Observe o que acontece com pulsos mais curtos que o intervalo.
 
-!!! note "Status de validação"
+"Status de validação"
     Testado em: não testado. Os exemplos aguardam validação no CODESYS.
 
 Fontes: ver [Referências](../99-referencias/index.md).
