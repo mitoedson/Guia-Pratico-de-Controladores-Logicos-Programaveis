@@ -5,6 +5,6 @@ Referência da linguagem Ladder: elementos, comportamento e equivalências entre
 ## Neste capítulo
 
 - [Contatos e bobinas](contatos-e-bobinas.md)
-- Temporizadores (planejado)
+- [Temporizadores (TON, TOF e TP)](temporizadores.md)
 - Contadores (planejado)
 - Comparação e matemática (planejado)

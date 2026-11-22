@@ -58,6 +58,10 @@ ABB. **Task configuration**: ajuda online de programação de CLP. [S. l.]: ABB,
 
 ______. **LD Element: Coil**. *In*: ABB. **Automation Builder**: ajuda online: programação com CODESYS. [S. l.]: ABB, 4 nov. 2026. Disponível em: https://en.help.plc.abb.com/_cds_LD_element_coil.html. Acesso em: 21 nov. 2026.
 
+______. **TON (FB)**. *In*: ABB. **Standard (LIB)**: biblioteca CODESYS Application, versão 2.9.0. [S. l.]: ABB, 2025a. Disponível em: https://help.plc.abb.com/Libraries/AB290/CODESYS%20-%20Application/Common/Standard.library_Library/Timer/TON.html. Acesso em: 21 nov. 2026.
+
+______. **TP (FB)**. *In*: ABB. **Standard (LIB)**: biblioteca CODESYS Application, versão 2.9.0. [S. l.]: ABB, 2025b. Disponível em: https://help.plc.abb.com/Libraries/AB290/CODESYS%20-%20Application/Common/Standard.library_Library/Timer/TP.html. Acesso em: 21 nov. 2026.
+
 AMERICAN NATIONAL STANDARDS INSTITUTE. **IEC 61131-3:2013**: programmable controllers: part 3: programming languages. [S. l.]: ANSI Webstore, [s. d.]. Disponível em: https://webstore.ansi.org/Standards/IEC/IEC61131Ed2013. Acesso em: 21 nov. 2026.
 
 BOLTON, W. **Programmable logic controllers**. 6. ed. Oxford: Newnes, 2015.
@@ -88,6 +92,8 @@ PETRUZELLA, F. D. **Controladores lógicos programáveis**. Tradução: Romeu Ab
 
 PLCOPEN. **Coding guidelines**: technical paper, version 1.0, official release. [S. l.]: PLCopen, abr. 2016. Software Construction Guidelines.
 
+______. **Enhanced IEC 61131-3**: proven standard fit for future. [S. l.]: PLCopen, [s. d.]. Disponível em: https://plcopen.org/node/196. Acesso em: 21 nov. 2026.
+
 ROCKWELL AUTOMATION. **PLC-5 programmable controllers**: instruction set reference. [S. l.]: Rockwell Automation, nov. 1998. Publicação 1785-6.1.
 
 ______. **Studio 5000 Logix Designer**: release notes, versão 38.00.00. [S. l.]: Rockwell Automation, set. 2025. Disponível em: https://compatibility.rockwellautomation.com/GeneratedReleaseNote.aspx?v1=66022. Acesso em: 21 nov. 2026.
@@ -101,6 +107,12 @@ ______. **Output Energize (OTE)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logi
 ______. **Output Latch (OTL)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]d. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1/output-latch--otl-1.html. Acesso em: 21 nov. 2026.
 
 ______. **Bit instructions**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]e. Disponível em: https://www.rockwellautomation.com/en-gb/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/bit-instructions1.html. Acesso em: 21 nov. 2026.
+
+______. **Timer On Delay (TON)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]f. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/timer-and-counter-instructions/timer-on-delay--ton-.html. Acesso em: 21 nov. 2026.
+
+______. **Retentive Timer On (RTO)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]g. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/timer-and-counter-instructions/retentive-timer-on--rto-.html. Acesso em: 21 nov. 2026.
+
+______. **Retentive Timer On with Reset (RTOR)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]h. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/timer-and-counter-instructions/retentive-timer-on-with-reset--rtor-.html. Acesso em: 21 nov. 2026.
 
 SCHNEIDER ELECTRIC. **Modicon M241 Logic Controller**: programming guide. EIO0000001432.07. [S. l.]: Schneider Electric, mar. 2018.
 
