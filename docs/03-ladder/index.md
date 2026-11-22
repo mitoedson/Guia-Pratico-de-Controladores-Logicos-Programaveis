@@ -6,5 +6,5 @@ Referência da linguagem Ladder: elementos, comportamento e equivalências entre
 
 - [Contatos e bobinas](contatos-e-bobinas.md)
 - [Temporizadores (TON, TOF e TP)](temporizadores.md)
-- Contadores (planejado)
+- [Contadores (CTU, CTD e CTUD)](contadores.md)
 - Comparação e matemática (planejado)
