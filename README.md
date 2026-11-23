@@ -64,6 +64,8 @@ ______. **TP (FB)**. *In*: ABB. **Standard (LIB)**: biblioteca CODESYS Applicati
 
 ______. **CTU (FB)**. *In*: ABB. **Standard (LIB)**: biblioteca CODESYS Application, versão 2.9.0. [S. l.]: ABB, 2025c. Disponível em: https://help.plc.abb.com/Libraries/AB290/CODESYS%20-%20Application/Common/Standard.library_Library/Counter/CTU.html. Acesso em: 21 nov. 2026.
 
+______. **Floating-Point Number Conversion**. *In*: ABB. **Programming with CODESYS**: CODESYS Development System: reference, programming: operators: ajuda online. [S. l.]: ABB, 2025d. Disponível em: https://help.plc.abb.com/AB270_en/_cds_operator_real_to.html. Acesso em: 21 nov. 2026.
+
 AMERICAN NATIONAL STANDARDS INSTITUTE. **IEC 61131-3:2013**: programmable controllers: part 3: programming languages. [S. l.]: ANSI Webstore, [s. d.]. Disponível em: https://webstore.ansi.org/Standards/IEC/IEC61131Ed2013. Acesso em: 21 nov. 2026.
 
 BOLTON, W. **Programmable logic controllers**. 6. ed. Oxford: Newnes, 2015.
@@ -119,6 +121,14 @@ ______. **Retentive Timer On (RTO)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 L
 ______. **Retentive Timer On with Reset (RTOR)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]h. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/timer-and-counter-instructions/retentive-timer-on-with-reset--rtor-.html. Acesso em: 21 nov. 2026.
 
 ______. **Count Up (CTU)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]i. Disponível em: https://www.rockwellautomation.com/en-be/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/timer-and-counter-instructions/count-up--ctu-.html. Acesso em: 21 nov. 2026.
+
+______. **Add (ADD)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]j. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/compute-math-instructions/add--add-.html. Acesso em: 21 nov. 2026.
+
+______. **Equal To (EQ)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]k. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/compare-instructions/equal-to--eq-.html. Acesso em: 21 nov. 2026.
+
+______. **Move (MOVE)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]l. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/move-logical-instructions/move--move-.html. Acesso em: 21 nov. 2026.
+
+______. **Data Conversions**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]m. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/data-conversions.html. Acesso em: 21 nov. 2026.
 
 SCHNEIDER ELECTRIC. **Modicon M241 Logic Controller**: programming guide. EIO0000001432.07. [S. l.]: Schneider Electric, mar. 2018.
 

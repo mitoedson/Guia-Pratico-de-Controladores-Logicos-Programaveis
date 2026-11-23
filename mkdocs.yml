@@ -59,6 +59,9 @@ nav:
       - Contatos e bobinas: 03-ladder/contatos-e-bobinas.md
       - Temporizadores: 03-ladder/temporizadores.md
       - Contadores: 03-ladder/contadores.md
+      - Comparação: 03-ladder/comparacao.md
+      - Matemática: 03-ladder/matematica.md
+      - Transferência e conversão de dados: 03-ladder/transferencia-e-conversao.md
   - 4. FBD: 04-fbd/index.md
   - 5. Lógica e sequenciamento: 05-logica-sequenciamento/index.md
   - 6. Acionamentos e movimento: 06-acionamentos-movimento/index.md
