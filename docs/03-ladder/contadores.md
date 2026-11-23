@@ -38,13 +38,13 @@ alarme := contador.Q;
 ```
 
 ```text
- |  fotocelula   +------------+                          |
+ |  fotocelula   +------------+                         |
  +-----] [-------| CU       Q |---------------( )-------+
- |  reinicio     |            |                alarme    |
- +-----] [-------| RESET      |                          |
- |           30 -| PV     CV  |                          |
- |               |    CTU     |                          |
- |               +------------+                          |
+ |  reinicio     |            |                alarme   |
+ +-----] [-------| RESET      |                         |
+ |           30 -| PV     CV  |                         |
+ |               |    CTU     |                         |
+ |               +------------+                         |
 ```
 
 Na norma, a entrada de reinício chama-se `R`. Na biblioteca padrão do CODESYS descrita pela ABB, chama-se `RESET`, e `PV` e `CV` são do tipo `WORD`, enquanto a norma usa `INT` (ABB, 2025c; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). Confira os nomes e tipos na biblioteca da sua plataforma.
