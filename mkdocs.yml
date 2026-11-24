@@ -62,6 +62,8 @@ nav:
       - Comparação: 03-ladder/comparacao.md
       - Matemática: 03-ladder/matematica.md
       - Transferência e conversão de dados: 03-ladder/transferencia-e-conversao.md
+      - Fluxo do programa: 03-ladder/fluxo-do-programa.md
+      - Deslocamento e sequenciadores: 03-ladder/deslocamento-e-sequenciadores.md
   - 4. FBD: 04-fbd/index.md
   - 5. Lógica e sequenciamento: 05-logica-sequenciamento/index.md
   - 6. Acionamentos e movimento: 06-acionamentos-movimento/index.md

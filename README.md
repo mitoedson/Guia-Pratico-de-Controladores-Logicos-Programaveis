@@ -130,6 +130,16 @@ ______. **Move (MOVE)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer
 
 ______. **Data Conversions**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]m. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/data-conversions.html. Acesso em: 21 nov. 2026.
 
+______. **Master Control Reset (MCR)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]n. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/program-control-instructions/master-control-reset--mcr-.html. Acesso em: 21 nov. 2026.
+
+______. **Jump to Subroutine (JSR), Subroutine (SBR), and Return (RET)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]o. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/program-control-instructions/jump-to-subroutine--jsr---subroutine--sbr---and-re.html. Acesso em: 21 nov. 2026.
+
+______. **Jump to Label (JMP) and Label (LBL)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]p. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/program-control-instructions/jump-to-label--jmp--and-label--lbl-.html. Acesso em: 21 nov. 2026.
+
+______. **Bit Shift Left (BSL)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]q. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/array--file--shift-instructions/bit-shift-left--bsl-.html. Acesso em: 21 nov. 2026.
+
+______. **Sequencer Output (SQO)**. *In*: ROCKWELL AUTOMATION. **Studio 5000 Logix Designer online help**: versão 38.00. [S. l.]: Rockwell Automation, [s. d.]r. Disponível em: https://www.rockwellautomation.com/en-dk/docs/studio-5000-logix-designer/38-00/contents-ditamap/instruction-set/sequencer-instructions/sequencer-output--sqo-.html. Acesso em: 21 nov. 2026.
+
 SCHNEIDER ELECTRIC. **Modicon M241 Logic Controller**: programming guide. EIO0000001432.07. [S. l.]: Schneider Electric, mar. 2018.
 
 ______. **Modicon M241 Logic Controller**: programming guide. EIO0000003059, versão 10. [S. l.]: Schneider Electric, 1 abr. 2026. Disponível em: https://www.se.com/us/en/download/document/EIO0000003059. Acesso em: 21 nov. 2026.
