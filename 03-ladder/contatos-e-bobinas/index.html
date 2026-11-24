@@ -1,0 +1,1669 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia técnico de controladores lógicos programáveis e automação industrial">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../temporizadores/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Contatos e bobinas - Guia Prático de CLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/abnt.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contatos-e-bobinas" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Guia Prático de CLP" class="md-header__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Guia Prático de CLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contatos e bobinas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Guia Prático de CLP" class="md-nav__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Guia Prático de CLP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/ciclo-de-varredura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-iec-61131-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. IEC 61131-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ladder (LD)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Ladder (LD)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O que é e quando usar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contato-normalmente-aberto-nao-e-o-mesmo-que-botao-normalmente-aberto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contato "normalmente aberto" não é o mesmo que botão "normalmente aberto"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-basicos-da-iec-61131-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elementos básicos da IEC 61131-3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-acionamento-direto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: acionamento direto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-partida-e-parada-com-selo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: partida e parada com selo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplo 2: partida e parada com selo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesma-funcao-com-set-e-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesma função com Set e Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bobina-dupla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bobina dupla
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deteccao-de-borda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecção de borda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temporizadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transferencia-e-conversao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-do-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo do programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deslocamento-e-sequenciadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deslocamento e sequenciadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-fbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. FBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-logica-sequenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lógica e sequenciamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-acionamentos-movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Acionamentos e movimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-instrumentacao-processo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Instrumentação e processo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-comunicacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Comunicação e integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-ihm-scada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. IHM e SCADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-boas-praticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Boas práticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../99-referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O que é e quando usar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contato-normalmente-aberto-nao-e-o-mesmo-que-botao-normalmente-aberto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contato "normalmente aberto" não é o mesmo que botão "normalmente aberto"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-basicos-da-iec-61131-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elementos básicos da IEC 61131-3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-acionamento-direto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: acionamento direto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-partida-e-parada-com-selo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: partida e parada com selo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplo 2: partida e parada com selo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesma-funcao-com-set-e-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesma função com Set e Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bobina-dupla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bobina dupla
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deteccao-de-borda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecção de borda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="contatos-e-bobinas">Contatos e bobinas<a class="headerlink" href="#contatos-e-bobinas" title="Permanent link">&para;</a></h1>
+<h2 id="o-que-e-e-quando-usar">O que é e quando usar<a class="headerlink" href="#o-que-e-e-quando-usar" title="Permanent link">&para;</a></h2>
+<p>O Ladder (LD) representa a lógica como um circuito de relés. Na norma IEC 61131-3, cada rede (degrau) fica entre um trilho de energia à esquerda e outro à direita, e o trilho esquerdo é considerado sempre ligado (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). O "fluxo de energia" é apenas simbólico: cada elo entre elementos está ligado (1) ou desligado (0), e o elo horizontal repassa à direita o estado que recebe da esquerda (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<p>Dois elementos formam a base de qualquer programa:</p>
+<ul>
+<li><strong>Contato:</strong> testa o estado de uma variável booleana, como uma entrada. Conduz ou não conduz, conforme o sinal (CODESYS GROUP, [s. d.]b).</li>
+<li><strong>Bobina:</strong> grava o resultado da lógica à esquerda em uma variável booleana, como uma saída. Funciona de forma parecida com um operador de atribuição (CODESYS GROUP, [s. d.]b).</li>
+</ul>
+<p>Contatos em série formam um <strong>E</strong> (AND), e contatos em ramos paralelos formam um <strong>OU</strong> (OR). A lógica é lida da esquerda para a direita, e as redes são processadas de cima para baixo (CODESYS GROUP, [s. d.]b), o que se conecta ao <a href="../../01-fundamentos/ciclo-de-varredura/">ciclo de varredura</a>.</p>
+<h3 id="contato-normalmente-aberto-nao-e-o-mesmo-que-botao-normalmente-aberto">Contato "normalmente aberto" não é o mesmo que botão "normalmente aberto"<a class="headerlink" href="#contato-normalmente-aberto-nao-e-o-mesmo-que-botao-normalmente-aberto" title="Permanent link">&para;</a></h3>
+<p>Os nomes NA e NF descrevem o <strong>teste do bit</strong>, não o dispositivo ligado à entrada. Petruzella (2014) recomenda separar a ação do dispositivo de campo da ação do CLP: sinal presente na entrada gera bit 1, e ausência de sinal gera bit 0. Em um de seus exemplos, a instrução XIC do botão de parada é verdadeira porque o botão de parada, fisicamente normalmente fechado, está fechado e o bit vale 1 (PETRUZELLA, 2014).</p>
+<p>Na prática, o símbolo depende de <strong>como o bit se comporta</strong>, e não de como o botão é chamado.</p>
+<h2 id="elementos-basicos-da-iec-61131-3">Elementos básicos da IEC 61131-3<a class="headerlink" href="#elementos-basicos-da-iec-61131-3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Símbolo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contato normalmente aberto (NA)</td>
+<td><code>--&#124; &#124;--</code></td>
+<td>Copia o estado do elo da esquerda para o da direita se a variável estiver ligada. Caso contrário, o elo da direita fica desligado.</td>
+</tr>
+<tr>
+<td>Contato normalmente fechado (NF)</td>
+<td><code>--&#124;/&#124;--</code></td>
+<td>Copia o estado da esquerda para a direita se a variável estiver desligada.</td>
+</tr>
+<tr>
+<td>Contato de borda de subida</td>
+<td><code>--&#124;P&#124;--</code></td>
+<td>O elo da direita fica ligado, de uma avaliação do elemento até a seguinte, quando se detecta transição de desligado para ligado da variável com o elo da esquerda ligado. Nos demais momentos fica desligado.</td>
+</tr>
+<tr>
+<td>Contato de borda de descida</td>
+<td><code>--&#124;N&#124;--</code></td>
+<td>Igual ao anterior, para a transição de ligado para desligado.</td>
+</tr>
+<tr>
+<td>Bobina</td>
+<td><code>--( )--</code></td>
+<td>Copia o estado da esquerda para a variável associada e para o elo da direita.</td>
+</tr>
+<tr>
+<td>Bobina negada</td>
+<td><code>--(/)--</code></td>
+<td>Copia o estado da esquerda para o elo da direita e grava na variável o estado inverso.</td>
+</tr>
+<tr>
+<td>Bobina Set (travamento)</td>
+<td><code>--(S)--</code></td>
+<td>Liga a variável quando o elo da esquerda está ligado, e ela permanece ligada até um Reset.</td>
+</tr>
+<tr>
+<td>Bobina Reset (destravamento)</td>
+<td><code>--(R)--</code></td>
+<td>Desliga a variável quando o elo da esquerda está ligado, e ela permanece desligada até um Set.</td>
+</tr>
+<tr>
+<td>Bobinas de borda</td>
+<td><code>--(P)--</code> e <code>--(N)--</code></td>
+<td>A variável fica ligada de uma avaliação à seguinte quando se detecta transição do elo da esquerda, de desligado para ligado (P) ou de ligado para desligado (N). O estado da esquerda sempre é copiado para a direita.</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte da tabela: IEC 61131-3, 2ª edição (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). Hanssen (2015) apresenta os mesmos elementos e informa que as bobinas Set e Reset correspondem aos blocos SR e RS, enquanto os contatos P e N correspondem aos blocos R_TRIG e F_TRIG.</p>
+<h2 id="exemplo-1-acionamento-direto">Exemplo 1: acionamento direto<a class="headerlink" href="#exemplo-1-acionamento-direto" title="Permanent link">&para;</a></h2>
+<p>Uma bomba liga quando o sensor de nível alto está ativo. O exemplo é original, no estilo do primeiro programa de Hanssen (2015).</p>
+<div class="highlight"><pre><span></span><code> |   sensor_nivel                          bomba    |
+ +-----------] [------------------------------( )--+
+</code></pre></div>
+<p>Equivalente em ST: <code>bomba := sensor_nivel;</code>. A bobina se comporta como uma atribuição (CODESYS GROUP, [s. d.]b).</p>
+<h2 id="exemplo-2-partida-e-parada-com-selo">Exemplo 2: partida e parada com selo<a class="headerlink" href="#exemplo-2-partida-e-parada-com-selo" title="Permanent link">&para;</a></h2>
+<p>Um motor parte com um botão de pulso e só para quando se aciona o botão de parada. Para o motor continuar ligado depois de soltar a partida, o circuito usa um contato da própria saída em paralelo com o botão, chamado <strong>selo</strong> (BOLTON, 2015; PETRUZELLA, 2014).</p>
+<div class="highlight"><pre><span></span><code> |        partida           parada                motor    |
+ +--+--------] [--------+-----]/[--------------------( )--+
+    |                   |
+    |         motor     |
+    +--------] [--------+
+</code></pre></div>
+<p>Neste desenho, <code>parada</code> usa contato NF porque se supõe um botão de parada que <strong>liga o bit quando é pressionado</strong>. Se o botão de parada for fisicamente NF, o bit vale 1 em repouso e o contato correto é NA, como no exemplo de Petruzella (2014) citado acima.</p>
+<p>Funcionamento, segundo Bolton (2015):</p>
+<ol>
+<li>Ao acionar a partida, a saída liga.</li>
+<li>Um segundo contato da saída fecha e forma um OU com o contato de partida.</li>
+<li>Mesmo que a partida seja solta, o circuito mantém a saída ligada.</li>
+<li>A única forma de liberar a saída é abrir o contato NF da parada.</li>
+</ol>
+<h3 id="mesma-funcao-com-set-e-reset">Mesma função com Set e Reset<a class="headerlink" href="#mesma-funcao-com-set-e-reset" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code> |   partida                                    motor   |
+ +------------] [-------------------------------(S)----+
+ |   parada                                     motor   |
+ +------------] [-------------------------------(R)----+
+</code></pre></div>
+<p>Hanssen (2015) mostra essa solução e avisa que a ordem dos degraus pode mudar o funcionamento. Pela execução sequencial e pela regra de que a última escrita vence (ver <a href="../../01-fundamentos/ciclo-de-varredura/">ciclo de varredura</a>), o Reset colocado depois do Set faz a parada prevalecer quando os dois botões estão acionados. Isso é uma dedução, e vale conferir na plataforma usada. Em blocos, Hanssen (2015) informa que o bloco RS tem reset dominante e o SR tem set dominante.</p>
+<div class="admonition warning">
+<p class="admonition-title">Retenção na queda de energia</p>
+<p>No manual do PLC-5, a instrução OTL (travamento) é retentiva: quando o CLP perde energia, muda para modo Program ou detecta falha grave, as saídas desligam, mas o estado das instruções retentivas fica na memória. Ao voltar para RUN, as saídas retentivas retornam imediatamente ao estado anterior, enquanto as não retentivas, como a OTE, são zeradas (ROCKWELL AUTOMATION, 1998). Por consequência, um motor travado por OTL volta a ligar sozinho quando o CLP retorna ao modo RUN.</p>
+</div>
+<h2 id="bobina-dupla">Bobina dupla<a class="headerlink" href="#bobina-dupla" title="Permanent link">&para;</a></h2>
+<p>Hanssen (2015) descreve como erro típico de iniciantes escrever duas bobinas com o mesmo endereço. Exemplo do autor: duas chaves ligadas a %IX1.1 e %IX1.2 e uma saída %QX2.0, cada uma em um degrau próprio. Com apenas a chave 1 acionada, o primeiro degrau liga a saída na memória, mas o segundo a desliga logo em seguida. As saídas físicas só são atualizadas depois da execução completa, então a saída permanece desligada (HANSSEN, 2015).</p>
+<p>A solução é reunir as condições em <strong>uma só bobina</strong>, com os contatos em paralelo (OU). Na ajuda do CODESYS LD FBD hospedada pela ABB, várias bobinas em uma mesma rede só podem ficar em paralelo (ABB, 2026).</p>
+<h2 id="deteccao-de-borda">Detecção de borda<a class="headerlink" href="#deteccao-de-borda" title="Permanent link">&para;</a></h2>
+<p>Um contato comum conduz <strong>enquanto</strong> o bit está ligado, e isso se repete a cada ciclo. Para agir <strong>uma vez</strong> por acionamento, usa-se um contato ou uma bobina de borda, que fica ativo por um único ciclo (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003; HANSSEN, 2015). Hanssen (2015) informa que os contatos P e N não existem no CODESYS 2.3.</p>
+<h2 id="equivalencias-entre-plataformas">Equivalências entre plataformas<a class="headerlink" href="#equivalencias-entre-plataformas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Função</th>
+<th>IEC 61131-3 / CODESYS</th>
+<th>Rockwell (PLC-5 e Logix)</th>
+<th>WEG WLP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contato NA</td>
+<td>Normally open contact</td>
+<td>XIC</td>
+<td>NO CONTACT</td>
+</tr>
+<tr>
+<td>Contato NF</td>
+<td>Normally closed contact</td>
+<td>XIO</td>
+<td>NC CONTACT</td>
+</tr>
+<tr>
+<td>Bobina</td>
+<td>Coil</td>
+<td>OTE</td>
+<td>COIL</td>
+</tr>
+<tr>
+<td>Bobina negada</td>
+<td>Negated coil</td>
+<td>Não encontrada nas fontes consultadas</td>
+<td>NEG COIL</td>
+</tr>
+<tr>
+<td>Travar (Set)</td>
+<td>SET coil</td>
+<td>OTL</td>
+<td>SET COIL</td>
+</tr>
+<tr>
+<td>Destravar (Reset)</td>
+<td>RESET coil</td>
+<td>OTU</td>
+<td>RESET COIL</td>
+</tr>
+<tr>
+<td>Borda de subida</td>
+<td>Positive transition-sensing contact ou coil</td>
+<td>ONS e OSR</td>
+<td>PTS COIL</td>
+</tr>
+<tr>
+<td>Borda de descida</td>
+<td>Negative transition-sensing contact ou coil</td>
+<td>OSF</td>
+<td>NTS COIL</td>
+</tr>
+</tbody>
+</table>
+<p>Fontes: IEC e Hanssen, nas seções anteriores; Rockwell (ROCKWELL AUTOMATION, 1998; ROCKWELL AUTOMATION, [s. d.]e); WEG (WEG, 2016). Observações:</p>
+<ul>
+<li><strong>Rockwell:</strong> o PLC-5 descreve XIC e XIO como instruções que examinam um bit ligado ou desligado, e OTE como a que liga o bit se o degrau for verdadeiro e o desliga se for falso, semelhante a uma bobina de relé (ROCKWELL AUTOMATION, 1998). A página atual das instruções de bit lista as funções equivalentes, inclusive acionar um bit por um ciclo quando o degrau fica verdadeiro ou falso (ROCKWELL AUTOMATION, [s. d.]e).</li>
+<li><strong>WEG WLP:</strong> entre os elementos listados no manual há apenas dois contatos (NO e NC). A detecção de borda é feita por bobinas (PTS e NTS), que ligam o bit por um ciclo de varredura (WEG, 2016). Existe ainda a <strong>bobina imediata</strong>, que grava a saída no momento da execução, e não no fim do ciclo (WEG, 2016).</li>
+<li><strong>Siemens e Schneider:</strong> a completar.</li>
+</ul>
+<h2 id="atualizacoes-e-comparacao-com-versoes-mais-recentes">Atualizações e comparação com versões mais recentes<a class="headerlink" href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" title="Permanent link">&para;</a></h2>
+<p>Consulta em 21 nov. 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Fonte citada</th>
+<th>Versão mais recente encontrada</th>
+<th>Mudança relevante ou observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3, 2ª ed. (2003)</td>
+<td>3ª ed. (2013) e 4ª ed. (2025) (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025).</td>
+<td>A PLCopen informa que o Anexo B da 3ª edição lista, entre as novidades, <strong>contatos de comparação no Ladder</strong> (PLCOPEN, [s. d.]). O texto das edições novas é pago, e não consegui conferir se mudou a definição de contatos e bobinas.</td>
+</tr>
+<tr>
+<td>Rockwell, manual do PLC-5 (1998)</td>
+<td>Ajuda do Studio 5000 Logix Designer, versão 38.00 (ROCKWELL AUTOMATION, [s. d.]b; ROCKWELL AUTOMATION, [s. d.]c; ROCKWELL AUTOMATION, [s. d.]d).</td>
+<td>O operando passou a ser uma <strong>tag BOOL</strong>, e não um endereço da tabela de imagem como <code>I:012/07</code>. A OTE passou a <strong>limpar o bit no pré-scan e no pós-scan</strong>. A OTL mantém o bit ligado até ele ser limpo, tipicamente por uma OTU. Não verifiquei o comportamento da retenção em queda de energia nos controladores atuais. Consulte o manual do controlador.</td>
+</tr>
+<tr>
+<td>CODESYS 2.3 (3S-SMART SOFTWARE SOLUTIONS, 2007) e Hanssen (2015)</td>
+<td>Ajuda do CODESYS 4 (CODESYS GROUP, [s. d.]b; CODESYS GROUP, [s. d.]c).</td>
+<td>Hanssen informa que os contatos P e N não existem no CODESYS 2.3. A ajuda do CODESYS 4 descreve contato com detecção de borda de subida e de descida. Essa ajuda é do CODESYS 4. Confira os recursos do LD no CODESYS V3.5 em uso.</td>
+</tr>
+<tr>
+<td>WEG, WLP V10.00 (06/2016)</td>
+<td>Não encontrei manual do WLP posterior.</td>
+<td>Nenhuma mudança verificada (WEG, 2016).</td>
+</tr>
+<tr>
+<td>Bolton, 6ª ed. (2015)</td>
+<td>A 6ª edição é a mais recente segundo a Elsevier (ELSEVIER, 2015).</td>
+<td>Nenhuma mudança verificada.</td>
+</tr>
+<tr>
+<td>Hanssen (2015) e Petruzella, 4ª ed. (2014)</td>
+<td>Não verifiquei se existem edições posteriores.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="erros-comuns">Erros comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Escrever duas bobinas para a mesma variável (HANSSEN, 2015).</li>
+<li>Usar o nome do botão (NA ou NF) para escolher o contato, em vez de observar o valor do bit (PETRUZELLA, 2014).</li>
+<li>Usar Set sem prever um Reset. O PLC-5 descreve OTL e OTU como instruções normalmente usadas em par para o mesmo bit (ROCKWELL AUTOMATION, 1998).</li>
+<li>Esquecer que uma saída travada por instrução retentiva pode voltar ligada quando o CLP retorna ao modo RUN (ROCKWELL AUTOMATION, 1998).</li>
+<li>Usar um contato comum quando se quer agir uma única vez. Nesse caso, use detecção de borda.</li>
+<li>Esquecer que a mesma entrada pode precisar de uma instância separada de <code>R_TRIG</code> para cada uso, quando a borda é feita por bloco (HANSSEN, 2015).</li>
+</ul>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Desenhe o circuito de partida e parada com selo para um botão de parada fisicamente NF. Qual contato representa a parada?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Contato NA. Com o botão NF em repouso, o bit vale 1, e o contato NA conduz (PETRUZELLA, 2014). Ao pressionar o botão, o bit cai para 0 e o contato abre.</p>
+</details>
+</li>
+<li>
+<p>Duas chaves, %IX1.1 e %IX1.2, devem ligar a saída %QX2.0 quando qualquer uma estiver acionada. Corrija o programa com duas bobinas.</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Uma única bobina em %QX2.0, com os contatos de %IX1.1 e %IX1.2 em paralelo (OU), como na solução de Hanssen (2015).</p>
+</details>
+</li>
+<li>
+<p>Reescreva o selo usando Set e Reset. O que acontece se partida e parada forem acionadas juntas, com o Reset depois do Set?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>A saída fica desligada, porque a última escrita do ciclo é o Reset (dedução a partir da execução sequencial).</p>
+</details>
+</li>
+<li>
+<p>No CODESYS, crie o selo em LD e depois a versão com Set e Reset. Compare o comportamento no modo de simulação.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Status de validação</p>
+<p>Testado em: não testado. Os exemplos aguardam validação no CODESYS. Os diagramas em texto são originais.</p>
+</div>
+<p>Fontes: ver <a href="../../99-referencias/">Referências</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Visão geral">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Visão geral
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../temporizadores/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Temporizadores">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Temporizadores
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

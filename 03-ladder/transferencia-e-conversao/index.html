@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia técnico de controladores lógicos programáveis e automação industrial">
+      
+      
+      
+      
+        <link rel="prev" href="../matematica/">
+      
+      
+        <link rel="next" href="../fluxo-do-programa/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Transferência e conversão de dados - Guia Prático de CLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/abnt.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transferencia-e-conversao-de-dados" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Guia Prático de CLP" class="md-header__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Guia Prático de CLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transferência e conversão de dados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Guia Prático de CLP" class="md-nav__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Guia Prático de CLP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/ciclo-de-varredura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-iec-61131-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. IEC 61131-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ladder (LD)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Ladder (LD)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contatos-e-bobinas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temporizadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transferência
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transferência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#move-e-mov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MOVE e MOV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvm-a-movimentacao-mascarada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVM, a movimentação mascarada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivos-cop-e-fll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquivos: COP e FLL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-no-weg-wlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRANSFER no WEG WLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversão
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-de-conversao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funções de conversão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponto-flutuante-para-inteiro-arredondar-ou-truncar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponto flutuante para inteiro: arredondar ou truncar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BCD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int2fl-e-fl2int-no-wlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INT2FL e FL2INT no WLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-escolher-o-tempo-de-um-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: escolher o tempo de um temporizador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-entrada-analogica-para-ponto-flutuante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: entrada analógica para ponto flutuante
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-arredondar-ou-truncar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: arredondar ou truncar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-contagem-para-um-mostrador-bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: contagem para um mostrador BCD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-do-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo do programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deslocamento-e-sequenciadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deslocamento e sequenciadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-fbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. FBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-logica-sequenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lógica e sequenciamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-acionamentos-movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Acionamentos e movimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-instrumentacao-processo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Instrumentação e processo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-comunicacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Comunicação e integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-ihm-scada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. IHM e SCADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-boas-praticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Boas práticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../99-referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transferência
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transferência">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#move-e-mov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MOVE e MOV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvm-a-movimentacao-mascarada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVM, a movimentação mascarada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquivos-cop-e-fll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquivos: COP e FLL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-no-weg-wlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TRANSFER no WEG WLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversão
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conversão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-de-conversao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funções de conversão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ponto-flutuante-para-inteiro-arredondar-ou-truncar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponto flutuante para inteiro: arredondar ou truncar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BCD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int2fl-e-fl2int-no-wlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INT2FL e FL2INT no WLP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-escolher-o-tempo-de-um-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: escolher o tempo de um temporizador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-entrada-analogica-para-ponto-flutuante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: entrada analógica para ponto flutuante
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-arredondar-ou-truncar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: arredondar ou truncar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-contagem-para-um-mostrador-bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: contagem para um mostrador BCD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="transferencia-e-conversao-de-dados">Transferência e conversão de dados<a class="headerlink" href="#transferencia-e-conversao-de-dados" title="Permanent link">&para;</a></h1>
+<h2 id="o-que-e-e-quando-usar">O que é e quando usar<a class="headerlink" href="#o-que-e-e-quando-usar" title="Permanent link">&para;</a></h2>
+<p>A <strong>transferência</strong> copia o valor de um endereço de origem para um endereço de destino. A origem permanece inalterada (ROCKWELL AUTOMATION, 1998). A <strong>conversão</strong> muda a representação de um valor, por exemplo de inteiro para ponto flutuante ou de binário para BCD (HANSSEN, 2015; ROCKWELL AUTOMATION, 1998).</p>
+<p>Usos típicos da transferência, segundo Bolton (2015):</p>
+<ul>
+<li>mover um valor pré-ajustado para o preset de um temporizador ou contador;</li>
+<li>guardar em um registrador o acumulado de um temporizador ou contador;</li>
+<li>mover o dado de uma entrada para um registrador;</li>
+<li>mover o conteúdo de um registrador para uma saída.</li>
+</ul>
+<p>A conversão aparece com mais frequência em cálculos numéricos com tipos diferentes. Os valores de entradas analógicas costumam ficar em endereços do tipo <code>WORD</code>, e para usá-los em expressões que exigem precisão é preciso convertê-los para ponto flutuante (HANSSEN, 2015).</p>
+<h2 id="transferencia">Transferência<a class="headerlink" href="#transferencia" title="Permanent link">&para;</a></h2>
+<h3 id="move-e-mov">MOVE e MOV<a class="headerlink" href="#move-e-mov" title="Permanent link">&para;</a></h3>
+<p>Na norma, <code>MOVE</code> é a função de atribuição, com uma só entrada (HANSSEN, 2015). Nas linguagens textuais, o equivalente é o operador <code>:=</code>. Cada fabricante representa o movimento de modo próprio: Bolton (2015) mostra o formato da Mitsubishi, da Allen-Bradley e da Siemens, em que a Siemens usa um bloco <code>MOVE</code> com <code>EN</code>, <code>ENO</code>, <code>IN</code> e <code>OUT</code>. Em geral, usa-se um degrau para cada operação de movimento (BOLTON, 2015).</p>
+<p>No manual do PLC-5, o MOV é uma instrução de saída que copia a origem para o destino, e <strong>move o dado a cada varredura enquanto o degrau permanece verdadeiro</strong>. O destino é sobrescrito, e a origem não muda (ROCKWELL AUTOMATION, 1998). Quando o degrau fica falso, o destino mantém o valor, a menos que outra parte do programa o altere (PETRUZELLA, 2014).</p>
+<h3 id="mvm-a-movimentacao-mascarada">MVM, a movimentação mascarada<a class="headerlink" href="#mvm-a-movimentacao-mascarada" title="Permanent link">&para;</a></h3>
+<p>A instrução MVM copia só uma parte selecionada de uma palavra. A máscara determina quais bits da origem passam para o destino (PETRUZELLA, 2014):</p>
+<ul>
+<li>onde a máscara tem 1, o dado passa da origem para o destino;</li>
+<li>onde a máscara tem 0, o bit do destino permanece no último estado;</li>
+<li>a máscara deve ter o mesmo tamanho da origem e do destino.</li>
+</ul>
+<h3 id="arquivos-cop-e-fll">Arquivos: COP e FLL<a class="headerlink" href="#arquivos-cop-e-fll" title="Permanent link">&para;</a></h3>
+<p>A <strong>COP</strong> (copiar arquivo) copia um arquivo de origem para um de destino, com a extensão total em cada varredura em que a instrução é verdadeira. A <strong>FLL</strong> (preencher arquivo) copia o valor de uma única origem para todas as palavras do arquivo de destino, e é muito usada para zerar um arquivo (PETRUZELLA, 2014).</p>
+<h3 id="transfer-no-weg-wlp">TRANSFER no WEG WLP<a class="headerlink" href="#transfer-no-weg-wlp" title="Permanent link">&para;</a></h3>
+<p>O bloco <code>TRANSFER</code> tem <code>EN</code>, <code>ENO</code> e dois argumentos, <code>SRC</code> (origem) e <code>DST</code> (destino). <code>ENO</code> vai a 1 quando a transferência termina, o que em geral é imediato, exceto quando a origem ou o destino é um parâmetro do inversor (WEG, 2016). A origem pode ser, entre outras opções, constante, marcador de bit, de palavra ou de ponto flutuante, marcador de sistema, entrada ou saída digital e entrada analógica (WEG, 2016).</p>
+<h2 id="conversao">Conversão<a class="headerlink" href="#conversao" title="Permanent link">&para;</a></h2>
+<h3 id="tipos-de-dados">Tipos de dados<a class="headerlink" href="#tipos-de-dados" title="Permanent link">&para;</a></h3>
+<p>A norma define os tipos elementares abaixo (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003):</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BOOL</code></td>
+<td>Booleano</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>SINT</code>, <code>INT</code>, <code>DINT</code>, <code>LINT</code></td>
+<td>Inteiros com sinal</td>
+<td>8, 16, 32, 64</td>
+</tr>
+<tr>
+<td><code>USINT</code>, <code>UINT</code>, <code>UDINT</code>, <code>ULINT</code></td>
+<td>Inteiros sem sinal</td>
+<td>8, 16, 32, 64</td>
+</tr>
+<tr>
+<td><code>REAL</code>, <code>LREAL</code></td>
+<td>Ponto flutuante</td>
+<td>32, 64</td>
+</tr>
+<tr>
+<td><code>BYTE</code>, <code>WORD</code>, <code>DWORD</code>, <code>LWORD</code></td>
+<td>Cadeias de bits</td>
+<td>8, 16, 32, 64</td>
+</tr>
+</tbody>
+</table>
+<p>Há ainda <code>TIME</code>, <code>DATE</code>, <code>TIME_OF_DAY</code>, <code>DATE_AND_TIME</code> e <code>STRING</code> (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<h3 id="funcoes-de-conversao">Funções de conversão<a class="headerlink" href="#funcoes-de-conversao" title="Permanent link">&para;</a></h3>
+<p>As funções de conversão têm a forma <code>*_TO_**</code>, em que <code>*</code> é o tipo da entrada e <code>**</code> o da saída, como <code>INT_TO_REAL</code> (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). Em ST, a sintaxe é <code>Out := tipo1_TO_tipo2(In)</code>, e em FBD e LD a função é um bloco com uma entrada e uma saída (HANSSEN, 2015).</p>
+<p>Os efeitos da conversão sobre a precisão e os tipos de erro que podem ocorrer são <strong>dependentes da implementação</strong> (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). Em geral, <strong>não se deve converter de um tipo maior para um menor</strong>, como <code>WORD</code> para <code>BYTE</code> ou <code>DINT</code> para <code>INT</code>. No melhor caso há perda de informação, e no pior, um erro (HANSSEN, 2015).</p>
+<h3 id="ponto-flutuante-para-inteiro-arredondar-ou-truncar">Ponto flutuante para inteiro: arredondar ou truncar<a class="headerlink" href="#ponto-flutuante-para-inteiro-arredondar-ou-truncar" title="Permanent link">&para;</a></h3>
+<p>Segundo a norma, a conversão de <code>REAL</code> ou <code>LREAL</code> para inteiro <strong>arredonda</strong> pela convenção da IEC 60559: se os dois inteiros mais próximos estão à mesma distância, o resultado é o inteiro par mais próximo. A função <code>TRUNC</code> <strong>trunca</strong> em direção a zero (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th><code>REAL_TO_INT</code></th>
+<th><code>TRUNC</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,4</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1,5</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1,6</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2,5</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>−1,5</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>−1,6</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>−2,5</td>
+<td>−2</td>
+<td>−2</td>
+</tr>
+</tbody>
+</table>
+<p>Fonte: INTERNATIONAL ELECTROTECHNICAL COMMISSION (2003). No CODESYS, o <code>TRUNC</code> converte para <code>DINT</code> e o <code>TRUNC_INT</code> converte para <code>INT</code>. No CODESYS 2.3, só existe o <code>TRUNC</code>, que corresponde ao <code>TRUNC_INT</code> da versão 3.x (HANSSEN, 2015).</p>
+<div class="admonition warning">
+<p class="admonition-title">O arredondamento do meio pode variar</p>
+<p>Na ajuda do CODESYS publicada pela ABB, os valores com parte fracionária de 5 a 9 sobem e os de 1 a 4 descem, mas <strong>o caso do meio depende do sistema-alvo ou da unidade de ponto flutuante</strong>. Um valor como −1,5 pode ser convertido de modo diferente em controladores diferentes. Se o valor está fora da faixa do tipo de destino, o resultado é indefinido, e para escrever código independente do alvo é preciso tratar o estouro no aplicativo (ABB, 2025d).</p>
+</div>
+<h3 id="bcd">BCD<a class="headerlink" href="#bcd" title="Permanent link">&para;</a></h3>
+<p>No formato BCD (decimal codificado em binário), cada dígito decimal é representado por 4 bits (BOLTON, 2015). O número 6923 fica 0110 1001 0010 0011, bem diferente do binário puro. Em 16 bits, o maior número em BCD é 9999 (HANSSEN, 2015).</p>
+<p>O BCD é usado com dispositivos como mostradores digitais e chaves de dígito (<em>thumbwheel</em>), e muitos CLPs têm entradas e saídas programáveis para converter BCD em binário e o contrário (BOLTON, 2015).</p>
+<p>Na norma, as funções <code>*_BCD_TO_**</code> e <code>**_TO_BCD_*</code> convertem entre cadeias de bits (<code>BYTE</code>, <code>WORD</code>, <code>DWORD</code>, <code>LWORD</code>) e inteiros sem sinal (<code>USINT</code>, <code>UINT</code>, <code>UDINT</code>, <code>ULINT</code>). Por exemplo, <code>USINT_TO_BCD_BYTE(25)</code> vale <code>2#0010_0101</code>, e <code>WORD_BCD_TO_UINT(2#0011_0110_1001)</code> vale 369 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<p>No PLC-5, a instrução <strong>TOD</strong> converte inteiro em BCD. Se o inteiro for maior que 9999, o processador grava 9999 e liga o bit de overflow. Se for negativo, grava 0 e liga os bits de overflow e de zero (ROCKWELL AUTOMATION, 1998). A <strong>FRD</strong> converte BCD em inteiro, e o manual manda convertê-lo <strong>antes</strong> de manipulá-lo na lógica, porque o processador trata valores BCD como inteiros, e o valor BCD real pode se perder ou se distorcer (ROCKWELL AUTOMATION, 1998).</p>
+<h3 id="int2fl-e-fl2int-no-wlp">INT2FL e FL2INT no WLP<a class="headerlink" href="#int2fl-e-fl2int-no-wlp" title="Permanent link">&para;</a></h3>
+<p>O bloco <code>INT2FL</code> copia a palavra inteira para um marcador de ponto flutuante enquanto <code>EN</code> está em 1. O <code>FL2INT</code> faz o inverso e <strong>satura</strong> o resultado: se o valor for maior que 32767, a palavra inteira fica em 32767, e se for menor que −32768, fica em −32768. No exemplo do manual, a constante 3,14 vira 3 no parâmetro do usuário (WEG, 2016).</p>
+<h2 id="exemplo-1-escolher-o-tempo-de-um-temporizador">Exemplo 1: escolher o tempo de um temporizador<a class="headerlink" href="#exemplo-1-escolher-o-tempo-de-um-temporizador" title="Permanent link">&para;</a></h2>
+<p>Uma chave seletora escolhe entre dois tempos, e o valor escolhido é movido para o preset do temporizador. A ideia segue o exemplo de Petruzella (2014), com a chave de duas posições que seleciona um de dois valores pré-ajustados. Esta versão é original, em ST:</p>
+<div class="highlight"><pre><span></span><code><span class="k">IF</span><span class="w"> </span><span class="n">chave_10s</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="n">tempo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#10</span><span class="n">S</span><span class="o">;</span>
+<span class="k">ELSE</span>
+<span class="w">    </span><span class="n">tempo</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#20</span><span class="n">S</span><span class="o">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">atraso</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">partida</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">tempo</span><span class="p">)</span><span class="o">;</span>
+<span class="n">saida</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">atraso</span><span class="o">.</span><span class="n">Q</span><span class="o">;</span>
+</code></pre></div>
+<p>Ver <a href="../temporizadores/">temporizadores</a>.</p>
+<h2 id="exemplo-2-entrada-analogica-para-ponto-flutuante">Exemplo 2: entrada analógica para ponto flutuante<a class="headerlink" href="#exemplo-2-entrada-analogica-para-ponto-flutuante" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">leitura_real</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">WORD_TO_REAL</span><span class="p">(</span><span class="n">entrada_analogica</span><span class="p">)</span><span class="o">;</span>
+</code></pre></div>
+<p>O valor de uma entrada analógica chega em uma <code>WORD</code> e precisa virar <code>REAL</code> para entrar em cálculos que exigem precisão (HANSSEN, 2015). Confira o nome da função na biblioteca da sua plataforma. O escalonamento para unidades de engenharia é tema do capítulo de instrumentação.</p>
+<h2 id="exemplo-3-arredondar-ou-truncar">Exemplo 3: arredondar ou truncar<a class="headerlink" href="#exemplo-3-arredondar-ou-truncar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">REAL_TO_INT</span><span class="p">(</span><span class="mf">7.5</span><span class="p">)</span><span class="o">;</span><span class="w">        </span><span class="cm">(* 8 *)</span>
+<span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">REAL_TO_INT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="mf">3.6</span><span class="p">)</span><span class="o">;</span><span class="w">      </span><span class="cm">(* -24 *)</span>
+<span class="n">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">TRUNC_INT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="mf">3.6</span><span class="p">)</span><span class="o">;</span><span class="w">        </span><span class="cm">(* -23 *)</span>
+</code></pre></div>
+<p>Os resultados são os do exemplo de Hanssen (2015). Para <code>REAL_TO_INT(7.5)</code>, a regra do par mais próximo da norma também dá 8.</p>
+<h2 id="exemplo-4-contagem-para-um-mostrador-bcd">Exemplo 4: contagem para um mostrador BCD<a class="headerlink" href="#exemplo-4-contagem-para-um-mostrador-bcd" title="Permanent link">&para;</a></h2>
+<p>Para enviar a contagem a um mostrador de quatro dígitos BCD, o valor precisa ser convertido e não pode passar de 9999:</p>
+<div class="highlight"><pre><span></span><code><span class="k">IF</span><span class="w"> </span><span class="n">pecas</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9999</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="n">pecas</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">9999</span><span class="o">;</span>
+<span class="n">END_IF</span>
+<span class="n">saida_display</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">UINT_TO_BCD_WORD</span><span class="p">(</span><span class="n">pecas</span><span class="p">)</span><span class="o">;</span>
+</code></pre></div>
+<p>O limite de 9999 vem do formato BCD em 16 bits (HANSSEN, 2015). Confira na sua plataforma se a função existe e com que nome.</p>
+<h2 id="equivalencias-entre-plataformas">Equivalências entre plataformas<a class="headerlink" href="#equivalencias-entre-plataformas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Função</th>
+<th>IEC 61131-3</th>
+<th>Rockwell PLC-5</th>
+<th>Rockwell Logix</th>
+<th>WEG WLP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copiar</td>
+<td><code>MOVE</code> ou <code>:=</code></td>
+<td><code>MOV</code></td>
+<td><code>MOVE</code>, antes <code>MOV</code></td>
+<td><code>TRANSFER</code></td>
+</tr>
+<tr>
+<td>Copiar com máscara</td>
+<td>Não consultado</td>
+<td><code>MVM</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>Copiar arquivo</td>
+<td>Não consultado</td>
+<td><code>COP</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>Preencher arquivo</td>
+<td>Não consultado</td>
+<td><code>FLL</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>Inteiro para real</td>
+<td><code>INT_TO_REAL</code></td>
+<td>Não consultado</td>
+<td>Conversão automática ao misturar tipos</td>
+<td><code>INT2FL</code></td>
+</tr>
+<tr>
+<td>Real para inteiro</td>
+<td><code>REAL_TO_INT</code>, <code>TRUNC</code></td>
+<td>Pelo MOV, com bit de overflow</td>
+<td>Conversão automática, com arredondamento</td>
+<td><code>FL2INT</code></td>
+</tr>
+<tr>
+<td>Inteiro para BCD</td>
+<td><code>*_TO_BCD_*</code></td>
+<td><code>TOD</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>BCD para inteiro</td>
+<td><code>*_BCD_TO_*</code></td>
+<td><code>FRD</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+</tbody>
+</table>
+<p>Fontes: IEC (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003); PLC-5 (ROCKWELL AUTOMATION, 1998; PETRUZELLA, 2014); Logix (ROCKWELL AUTOMATION, [s. d.]l; ROCKWELL AUTOMATION, [s. d.]m); WLP (WEG, 2016). <strong>Siemens e Schneider:</strong> a completar.</p>
+<h2 id="atualizacoes-e-comparacao-com-versoes-mais-recentes">Atualizações e comparação com versões mais recentes<a class="headerlink" href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" title="Permanent link">&para;</a></h2>
+<p>Consulta em 21 nov. 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Fonte citada</th>
+<th>Versão mais recente encontrada</th>
+<th>Mudança relevante ou observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3, 2ª ed. (2003)</td>
+<td>3ª ed. (2013) e 4ª ed. (2025) (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025).</td>
+<td>A PLCopen informa que a 3ª edição trouxe novos tipos de dados elementares (PLCOPEN, [s. d.]). Não consegui conferir se mudaram as funções de conversão, porque o texto é pago.</td>
+</tr>
+<tr>
+<td>Rockwell, manual do PLC-5 (1998)</td>
+<td>Ajuda do Studio 5000 Logix Designer, versão 38.00 (ROCKWELL AUTOMATION, [s. d.]l; ROCKWELL AUTOMATION, [s. d.]m).</td>
+<td>A partir da versão 36 do Logix Designer, o mnemônico passou de <code>MOV</code> para <code>MOVE</code>. A instrução não existe em FBD nem em ST, onde se usa <code>:=</code> (ROCKWELL AUTOMATION, [s. d.]l). Se o valor da origem está fora da faixa do tipo do destino e a detecção de overflow está ativa, ocorre uma falha menor. Cadeias de texto são truncadas ao tamanho do destino (ROCKWELL AUTOMATION, [s. d.]l). A conversão de <code>REAL</code> para inteiro arredonda, e o meio vai para o par mais próximo, como na norma (ROCKWELL AUTOMATION, [s. d.]m).</td>
+</tr>
+<tr>
+<td>CODESYS 2.3 (2007) e Hanssen (2015)</td>
+<td>Ajuda do CODESYS publicada pela ABB, atualizada em 20 mar. 2025 (ABB, 2025d).</td>
+<td>O arredondamento do caso do meio depende do sistema-alvo, e valores fora da faixa dão resultado indefinido (ABB, 2025d).</td>
+</tr>
+<tr>
+<td>WEG, WLP V10.00 (06/2016)</td>
+<td>Não encontrei manual do WLP posterior.</td>
+<td>Nenhuma mudança verificada (WEG, 2016).</td>
+</tr>
+<tr>
+<td>Bolton (2015), Hanssen (2015) e Petruzella (2014)</td>
+<td>Bolton: 6ª edição é a mais recente segundo a Elsevier (ELSEVIER, 2015).</td>
+<td>Não verifiquei edições posteriores de Hanssen e Petruzella.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="erros-comuns">Erros comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Converter de um tipo maior para um menor sem tratar a perda. No Logix, converter <code>DINT</code> 16#0001_0081 (65.665) para <code>INT</code> dá 129, e para <code>SINT</code> dá −127, porque o controlador guarda só os bits baixos que cabem (ROCKWELL AUTOMATION, [s. d.]m; HANSSEN, 2015).</li>
+<li>Confundir arredondar com truncar (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003; HANSSEN, 2015).</li>
+<li>Esperar o mesmo arredondamento do valor 0,5 em todas as plataformas (ABB, 2025d).</li>
+<li>Esquecer que o MOV do PLC-5 executa a cada varredura enquanto o degrau está verdadeiro (ROCKWELL AUTOMATION, 1998).</li>
+<li>Fazer contas com valores BCD sem convertê-los antes (ROCKWELL AUTOMATION, 1998).</li>
+<li>Passar de 9999 em um campo BCD de 16 bits. No PLC-5, o TOD satura em 9999 e liga o overflow (ROCKWELL AUTOMATION, 1998).</li>
+<li>Sobrescrever o mesmo destino em mais de um ponto do programa. A ajuda do Logix avisa que operação inesperada pode ocorrer se operandos de saída forem sobrescritos (ROCKWELL AUTOMATION, [s. d.]l).</li>
+<li>Misturar tipos de tempo no Logix. Um tipo de tempo relativo só se move de ou para outro relativo, e um absoluto só de ou para outro absoluto (ROCKWELL AUTOMATION, [s. d.]l).</li>
+</ul>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Quanto valem <code>REAL_TO_INT(2.5)</code>, <code>REAL_TO_INT(3.5)</code> e <code>TRUNC(-1.6)</code>, segundo a norma?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>2, 4 e −1. O meio vai para o inteiro par mais próximo, e o <code>TRUNC</code> corta em direção a zero (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+</details>
+</li>
+<li>
+<p>Escreva o número 5280 em BCD.</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>5 = 0101, 2 = 0010, 8 = 1000 e 0 = 0000, então 0101 0010 1000 0000 (BOLTON, 2015).</p>
+</details>
+</li>
+<li>
+<p>Uma instrução MVM tem origem <code>1010 1010 1100 1010</code>, destino inicial zerado e máscara <code>1111 1111 0000 1111</code>. Qual é o destino depois da execução?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Onde a máscara é 1, o bit vem da origem. Onde é 0, o destino mantém o valor anterior. O resultado é <code>1010 1010 0000 1010</code> (PETRUZELLA, 2014).</p>
+</details>
+</li>
+<li>
+<p>No Logix, um <code>DINT</code> vale 65.665. Quanto vale depois de convertido para <code>INT</code>?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>129, os 16 bits baixos (16#0081) (ROCKWELL AUTOMATION, [s. d.]m).</p>
+</details>
+</li>
+<li>
+<p>No CODESYS, implemente os Exemplos 1 a 4. Teste <code>REAL_TO_INT</code> com valores como 2,5 e −2,5 e compare com a tabela da norma.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Status de validação</p>
+<p>Testado em: não testado. Os exemplos aguardam validação no CODESYS. Os exemplos são originais, salvo quando indicado.</p>
+</div>
+<p>Fontes: ver <a href="../../99-referencias/">Referências</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../matematica/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Matemática">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Matemática
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fluxo-do-programa/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Fluxo do programa">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Fluxo do programa
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

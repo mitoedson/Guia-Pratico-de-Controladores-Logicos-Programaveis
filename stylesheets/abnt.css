@@ -1,0 +1,23 @@
+/* Referências conforme NBR 6023: alinhadas à esquerda, espaçamento simples,
+   uma linha em branco entre as obras. Sem recuo francês. */
+.abnt-referencias p {
+  text-align: left;
+  line-height: 1.2;
+  margin: 0 0 1.2em 0;
+  overflow-wrap: anywhere;
+}
+
+/* Título da seção: sem numeração, maiúsculas, negrito, centralizado */
+.abnt-titulo {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.abnt-titulo .headerlink { display: none; }
+
+/* Impressão / exportação para PDF pelo navegador:
+   A4, margens ABNT (superior e esquerda 3 cm; inferior e direita 2 cm) */
+@media print {
+  @page { size: A4; margin: 3cm 2cm 2cm 3cm; }
+  .abnt-referencias p { font-size: 12pt; }
+}

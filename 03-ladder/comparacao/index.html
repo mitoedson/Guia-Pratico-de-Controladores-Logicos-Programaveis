@@ -1,0 +1,1647 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia técnico de controladores lógicos programáveis e automação industrial">
+      
+      
+      
+      
+        <link rel="prev" href="../contadores/">
+      
+      
+        <link rel="next" href="../matematica/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Comparação - Guia Prático de CLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/abnt.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparacao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Guia Prático de CLP" class="md-header__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Guia Prático de CLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comparação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Guia Prático de CLP" class="md-nav__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Guia Prático de CLP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/ciclo-de-varredura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-iec-61131-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. IEC 61131-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ladder (LD)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Ladder (LD)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contatos-e-bobinas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temporizadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-seis-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Os seis operadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Os seis operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mais-de-dois-operandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mais de dois operandos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formas-de-escrever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formas de escrever
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-alarme-de-temperatura-alta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: alarme de temperatura alta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-aquecedor-com-duas-faixas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: aquecedor com duas faixas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-valor-dentro-de-uma-faixa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: valor dentro de uma faixa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-comparar-o-acumulado-de-um-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: comparar o acumulado de um temporizador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transferencia-e-conversao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-do-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo do programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deslocamento-e-sequenciadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deslocamento e sequenciadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-fbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. FBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-logica-sequenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lógica e sequenciamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-acionamentos-movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Acionamentos e movimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-instrumentacao-processo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Instrumentação e processo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-comunicacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Comunicação e integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-ihm-scada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. IHM e SCADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-boas-praticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Boas práticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../99-referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-seis-operadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Os seis operadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Os seis operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mais-de-dois-operandos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mais de dois operandos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formas-de-escrever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formas de escrever
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-alarme-de-temperatura-alta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: alarme de temperatura alta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-aquecedor-com-duas-faixas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: aquecedor com duas faixas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-valor-dentro-de-uma-faixa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: valor dentro de uma faixa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-comparar-o-acumulado-de-um-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: comparar o acumulado de um temporizador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="comparacao">Comparação<a class="headerlink" href="#comparacao" title="Permanent link">&para;</a></h1>
+<h2 id="o-que-e-e-quando-usar">O que é e quando usar<a class="headerlink" href="#o-que-e-e-quando-usar" title="Permanent link">&para;</a></h2>
+<p>Uma instrução de comparação confronta dois valores e responde se a relação é verdadeira. Serve, por exemplo, para iniciar uma ação quando a leitura digital de um sensor de temperatura fica abaixo de um valor ajustado e guardado em um registrador (BOLTON, 2015).</p>
+<p>Em Ladder, a comparação é uma <strong>instrução de entrada</strong>: ela se comporta como um contato e deixa passar o fluxo quando a relação é verdadeira. As instruções de transferência e de matemática, ao contrário, são instruções de saída (PETRUZELLA, 2014).</p>
+<h2 id="os-seis-operadores">Os seis operadores<a class="headerlink" href="#os-seis-operadores" title="Permanent link">&para;</a></h2>
+<p>Os CLPs costumam comparar por menor que, igual a, menor ou igual a, maior que, maior ou igual a e diferente de, e cada fabricante usa abreviações próprias (BOLTON, 2015).</p>
+<table>
+<thead>
+<tr>
+<th>Relação</th>
+<th>Operador em ST</th>
+<th>Nome na norma</th>
+<th>Abreviações comuns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Igual a</td>
+<td><code>=</code></td>
+<td>EQ</td>
+<td>EQU</td>
+</tr>
+<tr>
+<td>Diferente de</td>
+<td><code>&lt;&gt;</code></td>
+<td>NE</td>
+<td>NEQ</td>
+</tr>
+<tr>
+<td>Menor que</td>
+<td><code>&lt;</code></td>
+<td>LT</td>
+<td>LES</td>
+</tr>
+<tr>
+<td>Menor ou igual a</td>
+<td><code>&lt;=</code></td>
+<td>LE</td>
+<td>LEQ</td>
+</tr>
+<tr>
+<td>Maior que</td>
+<td><code>&gt;</code></td>
+<td>GT</td>
+<td>GRT</td>
+</tr>
+<tr>
+<td>Maior ou igual a</td>
+<td><code>&gt;=</code></td>
+<td>GE</td>
+<td>GEQ</td>
+</tr>
+</tbody>
+</table>
+<p>Fontes: HANSSEN (2015) e BOLTON (2015).</p>
+<h3 id="mais-de-dois-operandos">Mais de dois operandos<a class="headerlink" href="#mais-de-dois-operandos" title="Permanent link">&para;</a></h3>
+<p>Na norma, as funções de comparação aceitam vários operandos e comparam cada par vizinho. O <code>GT</code>, por exemplo, devolve <code>(IN1&gt;IN2) &amp; (IN2&gt;IN3) &amp; ...</code>, e o <code>NE</code> aceita só dois (HANSSEN, 2015). A <strong>ordem dos operandos importa</strong>: para a saída ficar verdadeira quando <code>Num1</code> é maior que <code>Num2</code>, <code>Num1</code> precisa estar na entrada de cima do bloco <code>GT</code> (HANSSEN, 2015).</p>
+<h2 id="formas-de-escrever">Formas de escrever<a class="headerlink" href="#formas-de-escrever" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ST:</strong> a comparação é uma expressão booleana, como <code>saida := P2 &lt; P1;</code> (BOLTON, 2015). Hanssen (2015) mostra duas variantes equivalentes, com <code>IF</code> e com atribuição direta, e destaca a segunda como a mais compacta.</li>
+<li><strong>Bloco em Ladder ou FBD:</strong> a representação é a mesma para todas as comparações e muda só o nome ou o símbolo no bloco. Em LD, o bloco precisa de uma entrada de habilitação, <code>EN</code> (HANSSEN, 2015).</li>
+<li><strong>Instrução no degrau (estilo Rockwell e Mitsubishi):</strong> a instrução traz a origem A e a origem B, e Bolton (2015) mostra o formato dos três fabricantes para o "maior que".</li>
+<li><strong>Bloco COMP do WEG WLP:</strong> tem <code>EN</code>, <code>ENO</code> e quatro argumentos (formato, operador, dado 1 e dado 2). Com <code>EN</code> em 1 e a comparação verdadeira, <code>ENO</code> vai a 1 (WEG, 2016).</li>
+</ul>
+<h2 id="exemplo-1-alarme-de-temperatura-alta">Exemplo 1: alarme de temperatura alta<a class="headerlink" href="#exemplo-1-alarme-de-temperatura-alta" title="Permanent link">&para;</a></h2>
+<p>O alarme liga quando a temperatura passa do limite. O exemplo é original, no estilo de Hanssen (2015).</p>
+<div class="highlight"><pre><span></span><code><span class="n">alarme_temperatura</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">temperatura</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">limite_alto</span><span class="o">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> |   GRT                                         alarme_temperatura |
+ +---[ A: temperatura   B: limite_alto ]-----------------( )--------+
+</code></pre></div>
+<p>O resultado é recalculado a cada varredura (ver <a href="../../01-fundamentos/ciclo-de-varredura/">ciclo de varredura</a>).</p>
+<h2 id="exemplo-2-aquecedor-com-duas-faixas">Exemplo 2: aquecedor com duas faixas<a class="headerlink" href="#exemplo-2-aquecedor-com-duas-faixas" title="Permanent link">&para;</a></h2>
+<p>O aquecedor liga abaixo de 18 e desliga acima de 22. Entre os dois valores, mantém o estado em que estava. O exemplo é original.</p>
+<div class="highlight"><pre><span></span><code><span class="k">IF</span><span class="w"> </span><span class="n">temperatura</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="mf">8.0</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="n">aquecedor</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">TRUE</span><span class="o">;</span>
+<span class="n">ELSIF</span><span class="w"> </span><span class="n">temperatura</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="mf">2.0</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="n">aquecedor</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">FALSE</span><span class="o">;</span>
+<span class="n">END_IF</span>
+</code></pre></div>
+<p>Em Ladder, a mesma lógica usa duas comparações e as bobinas Set e Reset, descritas em <a href="../contatos-e-bobinas/">contatos e bobinas</a>.</p>
+<h2 id="exemplo-3-valor-dentro-de-uma-faixa">Exemplo 3: valor dentro de uma faixa<a class="headerlink" href="#exemplo-3-valor-dentro-de-uma-faixa" title="Permanent link">&para;</a></h2>
+<p>Para testar se uma leitura analógica está entre dois limites, a norma permite combinar duas comparações:</p>
+<div class="highlight"><pre><span></span><code><span class="n">leitura_ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="n">leitura</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">limite_baixo</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span><span class="n">leitura</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">limite_alto</span><span class="p">)</span><span class="o">;</span>
+</code></pre></div>
+<p>O PLC-5 tem uma instrução própria para isso, a <strong>LIM</strong> (limit test). Ela é falsa até detectar que o valor de teste está dentro dos limites, e fica falsa de novo quando o valor sai da faixa. O manual cita o uso para verificar se uma entrada analógica está dentro de limites (ROCKWELL AUTOMATION, 1998).</p>
+<p>Segundo o manual, a LIM tem dois modos conforme os limites (ROCKWELL AUTOMATION, 1998):</p>
+<ul>
+<li><strong>Limite baixo ≤ limite alto:</strong> a instrução é verdadeira quando o valor está entre os limites ou é igual a um deles.</li>
+<li><strong>Limite baixo ≥ limite alto:</strong> a instrução é verdadeira quando o valor está fora dos limites ou é igual a um deles.</li>
+</ul>
+<h2 id="exemplo-4-comparar-o-acumulado-de-um-temporizador">Exemplo 4: comparar o acumulado de um temporizador<a class="headerlink" href="#exemplo-4-comparar-o-acumulado-de-um-temporizador" title="Permanent link">&para;</a></h2>
+<p>Petruzella (2014) mostra uma instrução EQU que compara o valor acumulado de um temporizador (<code>T4:0</code>) com um valor em <code>N7:40</code>: quando os dois são iguais, a saída é energizada. Bolton (2015) mostra um GRT que compara o acumulado do temporizador <code>T4:0</code> com a constante 400.</p>
+<div class="highlight"><pre><span></span><code> |   GRT                                              saida |
+ +---[ A: T4:0.ACC   B: 400 ]---------------------------( )--+
+</code></pre></div>
+<p>Os conceitos de comparação já apareciam nos temporizadores e contadores, nos quais a saída liga quando o acumulado atinge o preset (PETRUZELLA, 2014). Ver <a href="../temporizadores/">temporizadores</a> e <a href="../contadores/">contadores</a>.</p>
+<h2 id="tipos-de-dados">Tipos de dados<a class="headerlink" href="#tipos-de-dados" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Norma:</strong> os operandos são números ou variáveis da classe <code>ANY_ELEMENTARY</code>. Em cadeias de bits de comprimentos diferentes, a mais curta é preenchida com zeros à direita (HANSSEN, 2015).</li>
+<li><strong>PLC-5:</strong> é possível comparar valores de tipos diferentes, como ponto flutuante e inteiro. Valores BCD e ASCII são tratados como inteiros (ROCKWELL AUTOMATION, 1998).</li>
+<li><strong>Logix:</strong> a comparação aceita muitos tipos numéricos, de tempo e de data, além de cadeias de texto. Na comparação numérica, o resultado só é verdadeiro se nenhum dos operandos for <code>NaN</code> (ROCKWELL AUTOMATION, [s. d.]k).</li>
+<li><strong>WLP:</strong> o formato do bloco COMP é sempre constante e pode ser inteiro ou ponto flutuante (WEG, 2016).</li>
+</ul>
+<h2 id="equivalencias-entre-plataformas">Equivalências entre plataformas<a class="headerlink" href="#equivalencias-entre-plataformas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Função</th>
+<th>IEC 61131-3</th>
+<th>Rockwell PLC-5</th>
+<th>Rockwell Logix</th>
+<th>WEG WLP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Igual a</td>
+<td><code>EQ</code></td>
+<td><code>EQU</code></td>
+<td><code>EQ</code>, antes <code>EQU</code></td>
+<td><code>COMP</code> com <code>=</code></td>
+</tr>
+<tr>
+<td>Demais relações</td>
+<td><code>NE</code>, <code>LT</code>, <code>LE</code>, <code>GT</code>, <code>GE</code></td>
+<td><code>NEQ</code>, <code>LES</code>, <code>LEQ</code>, <code>GRT</code>, <code>GEQ</code></td>
+<td>Não consultado</td>
+<td><code>COMP</code> com <code>~=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+</tr>
+<tr>
+<td>Teste de faixa</td>
+<td>Duas comparações em <code>AND</code></td>
+<td><code>LIM</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>Comparação mascarada</td>
+<td>Não consultado</td>
+<td><code>MEQ</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+<tr>
+<td>Comparação por expressão</td>
+<td>Expressão em ST</td>
+<td><code>CMP</code></td>
+<td>Não consultado</td>
+<td>Não encontrado</td>
+</tr>
+</tbody>
+</table>
+<p>Fontes: IEC e Hanssen (HANSSEN, 2015); PLC-5 (ROCKWELL AUTOMATION, 1998); Logix (ROCKWELL AUTOMATION, [s. d.]k); WLP (WEG, 2016). <strong>Siemens e Schneider:</strong> a completar.</p>
+<h2 id="atualizacoes-e-comparacao-com-versoes-mais-recentes">Atualizações e comparação com versões mais recentes<a class="headerlink" href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" title="Permanent link">&para;</a></h2>
+<p>Consulta em 21 nov. 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Fonte citada</th>
+<th>Versão mais recente encontrada</th>
+<th>Mudança relevante ou observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3, 2ª ed. (2003)</td>
+<td>3ª ed. (2013) e 4ª ed. (2025) (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025).</td>
+<td>A PLCopen informa que o Anexo B da 3ª edição inclui <strong>contatos de comparação</strong> no Ladder, tipados e sobrecarregados (PLCOPEN, [s. d.]). Não consegui ler o texto da norma, que é pago.</td>
+</tr>
+<tr>
+<td>Rockwell, manual do PLC-5 (1998)</td>
+<td>Ajuda do Studio 5000 Logix Designer, versão 38.00 (ROCKWELL AUTOMATION, [s. d.]k).</td>
+<td>A partir da versão 36 do Logix Designer, o mnemônico mudou de <code>EQU</code> para <code>EQ</code> (ROCKWELL AUTOMATION, [s. d.]k). Os operandos agora aceitam muitos tipos, inclusive texto, e a comparação numérica exige operandos que não sejam <code>NaN</code>. A comparação <strong>não afeta</strong> os flags de matemática (ROCKWELL AUTOMATION, [s. d.]k).</td>
+</tr>
+<tr>
+<td>WEG, WLP V10.00 (06/2016)</td>
+<td>Não encontrei manual do WLP posterior.</td>
+<td>Nenhuma mudança verificada (WEG, 2016).</td>
+</tr>
+<tr>
+<td>Hanssen (2015), Bolton (2015) e Petruzella (2014)</td>
+<td>Bolton: 6ª edição é a mais recente segundo a Elsevier (ELSEVIER, 2015).</td>
+<td>Não verifiquei edições posteriores de Hanssen e Petruzella.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="erros-comuns">Erros comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Inverter a ordem dos operandos. <code>A &gt; B</code> não é o mesmo que <code>B &gt; A</code> (HANSSEN, 2015).</li>
+<li>Comparar valores de tipos ou comprimentos diferentes sem conferir as regras da plataforma (HANSSEN, 2015; ROCKWELL AUTOMATION, 1998).</li>
+<li>Esperar que a comparação funcione com <code>NaN</code> no Logix. Nesse caso o resultado numérico não é verdadeiro (ROCKWELL AUTOMATION, [s. d.]k).</li>
+<li>Usar uma instrução de matemática ou de transferência onde se queria um teste. Elas são instruções de saída, enquanto a comparação é de entrada (PETRUZELLA, 2014).</li>
+<li>Escolher o operador errado no limite. Maior que (<code>GRT</code>) e maior ou igual a (<code>GEQ</code>) dão resultados diferentes quando os valores são iguais, como no exemplo de Petruzella com um sinal em <code>350</code> ou mais (PETRUZELLA, 2014).</li>
+</ul>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Um bloco <code>GE</code> recebe <code>a = 5</code>, <code>b = 3</code> e <code>c = 3</code>. Qual é a saída?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p><code>(5 &gt;= 3) AND (3 &gt;= 3)</code> é verdadeiro, então a saída é <code>TRUE</code> (HANSSEN, 2015).</p>
+</details>
+</li>
+<li>
+<p>No PLC-5, uma instrução LIM tem limite baixo 10, limite alto 20 e valor de teste 15. Qual é o estado? E se os limites forem invertidos, 20 e 10?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Com 10 e 20, é verdadeira, porque 15 está entre os limites. Com 20 e 10, é falsa, porque 15 está entre os dois e não é igual a nenhum (ROCKWELL AUTOMATION, 1998).</p>
+</details>
+</li>
+<li>
+<p>Reescreva o Exemplo 2 em Ladder com bobinas Set e Reset. Qual dos dois degraus deve vir por último, se a temperatura puder estar em duas faixas ao mesmo tempo?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>As faixas do exemplo não se sobrepõem, então a ordem não importa. Se elas se sobrepusessem, valeria o Reset ou o Set colocado por último, pela regra de que a última escrita vence (ver <a href="../../01-fundamentos/ciclo-de-varredura/">ciclo de varredura</a>). É uma dedução, e vale testar na plataforma.</p>
+</details>
+</li>
+<li>
+<p>No CODESYS, implemente os exemplos e varie a variável <code>temperatura</code> na simulação.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Status de validação</p>
+<p>Testado em: não testado. Os exemplos aguardam validação no CODESYS. Os diagramas em texto são originais.</p>
+</div>
+<p>Fontes: ver <a href="../../99-referencias/">Referências</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../contadores/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Contadores">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Contadores
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../matematica/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Matemática">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Matemática
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

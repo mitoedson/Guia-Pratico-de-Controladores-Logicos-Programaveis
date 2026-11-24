@@ -1,0 +1,1576 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia técnico de controladores lógicos programáveis e automação industrial">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../02-iec-61131-3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Ciclo de varredura - Guia Prático de CLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/abnt.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ciclo-de-varredura-scan" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Guia Prático de CLP" class="md-header__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Guia Prático de CLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ciclo de varredura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Guia Prático de CLP" class="md-nav__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Guia Prático de CLP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como funciona
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como funciona">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consequencias-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequências práticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formas-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formas de execução
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-aplicado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo aplicado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplo aplicado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armadilha-escrita-dupla-na-mesma-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Armadilha: escrita dupla na mesma saída
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencas-entre-fabricantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferenças entre fabricantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-iec-61131-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. IEC 61131-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ladder (LD)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Ladder (LD)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/contatos-e-bobinas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/temporizadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/contadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/comparacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/matematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/transferencia-e-conversao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/fluxo-do-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo do programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ladder/deslocamento-e-sequenciadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deslocamento e sequenciadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-fbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. FBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-logica-sequenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lógica e sequenciamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-acionamentos-movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Acionamentos e movimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-instrumentacao-processo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Instrumentação e processo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-comunicacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Comunicação e integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-ihm-scada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. IHM e SCADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-boas-praticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Boas práticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../99-referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como funciona
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como funciona">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consequencias-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequências práticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formas-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formas de execução
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-aplicado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo aplicado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplo aplicado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armadilha-escrita-dupla-na-mesma-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Armadilha: escrita dupla na mesma saída
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencas-entre-fabricantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferenças entre fabricantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ciclo-de-varredura-scan">Ciclo de varredura (scan)<a class="headerlink" href="#ciclo-de-varredura-scan" title="Permanent link">&para;</a></h1>
+<h2 id="o-que-e-e-quando-usar">O que é e quando usar<a class="headerlink" href="#o-que-e-e-quando-usar" title="Permanent link">&para;</a></h2>
+<p>O CLP não observa as entradas o tempo todo nem reage a elas de forma instantânea: as entradas são amostradas periodicamente (BOLTON, 2015). Ele repete, sem parar, uma sequência fixa de operações chamada <strong>ciclo de varredura</strong> (<em>scan</em>). Entender essa sequência explica por que um pulso curto pode ser perdido, por que a ordem das linhas do programa importa e por que escrever duas vezes na mesma saída não produz o efeito esperado.</p>
+<p>Esse conhecimento vale para qualquer linguagem e qualquer fabricante, e deve vir antes de qualquer programa.</p>
+<h2 id="como-funciona">Como funciona<a class="headerlink" href="#como-funciona" title="Permanent link">&para;</a></h2>
+<p>No modo RUN, o CLP repete quatro operações (HANSSEN, 2015):</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Processamento interno"] --&gt; B["Leitura das entradas&lt;br/&gt;(imagem de entrada)"]
+    B --&gt; C["Execução do programa"]
+    C --&gt; D["Atualização das saídas&lt;br/&gt;(imagem de saída)"]
+    D --&gt; A</code></pre>
+<ol>
+<li><strong>Processamento interno:</strong> o CLP verifica o próprio estado, atualiza relógios, trata mudanças de modo e reinicia o temporizador de vigilância (<em>watchdog</em>).</li>
+<li><strong>Leitura das entradas:</strong> o estado dos módulos de entrada é copiado para a memória.</li>
+<li><strong>Execução do programa:</strong> as instruções são executadas em sequência, e os valores de saída são atualizados na memória.</li>
+<li><strong>Atualização das saídas:</strong> a memória de saída é copiada para os módulos. Somente nesse momento as saídas físicas mudam.</li>
+</ol>
+<p>Copiar todas as entradas de uma vez, em vez de lê-las no ponto em que são usadas, evita que o mesmo endereço mude de valor no meio da execução. O custo é que pulsos mais curtos que o ciclo podem passar despercebidos (HANSSEN, 2015).</p>
+<p>O <strong>tempo de ciclo</strong> depende da CPU, do tamanho do programa, do número de entradas e saídas lidas e das funções de sistema em uso. Quanto mais complexo o programa, maior o ciclo (BOLTON, 2015).</p>
+<h3 id="consequencias-praticas">Consequências práticas<a class="headerlink" href="#consequencias-praticas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pulso mínimo:</strong> uma entrada precisa durar mais que o tempo de ciclo para ser vista com segurança (BOLTON, 2015). Exemplo numérico ilustrativo: com ciclo de 20 ms, um pulso de 5 ms pode ocorrer entre duas leituras e nunca chegar ao programa.</li>
+<li><strong>Atraso de resposta:</strong> por dedução da sequência acima, se a entrada muda logo depois da leitura, ela só é lida no ciclo seguinte e só atua na saída ao fim desse ciclo. No pior caso, a resposta leva cerca de dois ciclos, sem contar filtros e atrasos dos módulos.</li>
+<li><strong>Saída só muda no fim:</strong> as saídas físicas só mudam na última operação do ciclo (HANSSEN, 2015). O mesmo vale para o Ladder do WLP da WEG, que grava a imagem das saídas nas saídas físicas em uma única operação ao final do ciclo (WEG, 2016).</li>
+<li><strong>Última escrita vence:</strong> durante a execução, os valores das saídas são alterados na memória e só o resultado final é gravado nas saídas físicas (WEG, 2016). Se o programa escreve várias vezes na mesma saída em um ciclo, apenas o último valor chega ao módulo.</li>
+</ul>
+<h3 id="formas-de-execucao">Formas de execução<a class="headerlink" href="#formas-de-execucao" title="Permanent link">&para;</a></h3>
+<p>Em sistemas baseados na IEC 61131-3, o programa é associado a uma <strong>tarefa</strong>, que define quando ele roda. Os três modos mais comuns são (HANSSEN, 2015):</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Como funciona</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cíclica</td>
+<td>Novo ciclo a intervalos fixos. O intervalo deve ser maior que o tempo de execução.</td>
+<td>Contagem de tempo e controle PID</td>
+</tr>
+<tr>
+<td>Livre (<em>freewheeling</em>)</td>
+<td>Novo ciclo começa assim que o anterior termina. O tempo varia.</td>
+<td>Execução mais rápida possível</td>
+</tr>
+<tr>
+<td>Por evento</td>
+<td>Executa só quando uma condição booleana é verdadeira.</td>
+<td>Parada de emergência e rotinas de partida</td>
+</tr>
+</tbody>
+</table>
+<p>Tarefas também têm prioridade: as de prioridade mais alta são atendidas antes e costumam conter funções críticas, como emergência e alarmes (HANSSEN, 2015).</p>
+<h2 id="exemplo-aplicado">Exemplo aplicado<a class="headerlink" href="#exemplo-aplicado" title="Permanent link">&para;</a></h2>
+<p>Contagem de peças em uma esteira, em ST (texto estruturado), no CODESYS. A palavra-chave <code>AT</code> associa a variável a um endereço de entrada ou saída (HANSSEN, 2015).</p>
+<div class="highlight"><pre><span></span><code><span class="k">PROGRAM</span><span class="w"> </span><span class="n">Contador</span>
+<span class="k">VAR</span>
+<span class="w">    </span><span class="n">sensor_peca</span><span class="w"> </span><span class="n">AT</span><span class="w"> </span><span class="err">%</span><span class="n">IX0</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">BOOL</span><span class="o">;</span><span class="w">   </span><span class="c1">// entrada: sensor na esteira</span>
+<span class="w">    </span><span class="n">borda_peca</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">R_TRIG</span><span class="o">;</span><span class="w">           </span><span class="c1">// detector de borda de subida</span>
+<span class="w">    </span><span class="n">pecas</span><span class="w">       </span><span class="o">:</span><span class="w"> </span><span class="n">UINT</span><span class="o">;</span><span class="w">             </span><span class="c1">// total de peças contadas</span>
+<span class="n">END_VAR</span>
+
+<span class="n">borda_peca</span><span class="p">(</span><span class="n">CLK</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">sensor_peca</span><span class="p">)</span><span class="o">;</span>
+
+<span class="k">IF</span><span class="w"> </span><span class="n">borda_peca</span><span class="o">.</span><span class="n">Q</span><span class="w"> </span><span class="k">THEN</span><span class="w">                </span><span class="c1">// TRUE por um único ciclo</span>
+<span class="w">    </span><span class="n">pecas</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">pecas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">;</span>
+<span class="n">END_IF</span>
+</code></pre></div>
+<p>Pela norma, a saída <code>Q</code> de um <code>R_TRIG</code> fica em 1 de uma execução do bloco até a seguinte, após a transição de 0 para 1 da entrada <code>CLK</code>, e volta a 0 na execução seguinte (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). Sem a detecção de borda, o contador aumentaria a cada ciclo enquanto a peça cobrisse o sensor.</p>
+<h3 id="armadilha-escrita-dupla-na-mesma-saida">Armadilha: escrita dupla na mesma saída<a class="headerlink" href="#armadilha-escrita-dupla-na-mesma-saida" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// no início do programa</span>
+<span class="n">lampada</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">alarme_nivel</span><span class="o">;</span>
+
+<span class="c1">// ... mais adiante, em outro ponto</span>
+<span class="n">lampada</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">modo_manual</span><span class="o">;</span><span class="w">     </span><span class="c1">// sobrescreve o valor anterior</span>
+</code></pre></div>
+<p>Só o último valor, o de <code>modo_manual</code>, chega ao módulo de saída, e o primeiro é perdido. Jack (2008) descreve esse como um erro comum de iniciantes em Ladder: repetir a mesma saída invalida a primeira ocorrência, e a primeira linha nunca terá efeito. A solução é escrever cada saída em um só lugar, combinando as condições:</p>
+<div class="highlight"><pre><span></span><code><span class="n">lampada</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">alarme_nivel</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">modo_manual</span><span class="o">;</span>
+</code></pre></div>
+<h2 id="diferencas-entre-fabricantes">Diferenças entre fabricantes<a class="headerlink" href="#diferencas-entre-fabricantes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Como o programa é executado</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CODESYS</td>
+<td>Tarefas cíclica, livre ou por evento (HANSSEN, 2015), com <em>watchdog</em> definido por tarefa (3S-SMART SOFTWARE SOLUTIONS, 2007).</td>
+<td>Programas diferentes podem ter ciclos diferentes.</td>
+</tr>
+<tr>
+<td>Schneider Modicon M241</td>
+<td>Tarefas cíclica, livre, por evento e por evento externo. Os POUs de uma tarefa são executados na ordem em que aparecem na lista (SCHNEIDER ELECTRIC, 2018).</td>
+<td>O <em>watchdog</em> tem dois parâmetros: tempo e sensibilidade, esta definindo quantas expirações são toleradas antes de o controlador parar o programa (SCHNEIDER ELECTRIC, 2018).</td>
+</tr>
+<tr>
+<td>Siemens S7-1200/1500</td>
+<td>O sistema operacional atualiza a imagem de processo e chama o programa de usuário (SIEMENS, 2018).</td>
+<td>Se o tempo de monitoração de ciclo estoura uma vez, o S7-1200 segue em RUN e o S7-1500 vai para STOP quando o OB80 não está configurado (SIEMENS, 2018). OBs de interrupção cíclica vêm com ciclo padrão de 100 ms (SIEMENS, 2021).</td>
+</tr>
+<tr>
+<td>Rockwell Logix 5000 (Studio 5000)</td>
+<td>Tarefas contínua, periódica e por evento. A <em>MainTask</em> nasce contínua e tem a menor prioridade. Os programas de uma tarefa executam na ordem em que aparecem no organizador do controlador (ROCKWELL AUTOMATION, [s. d.]a).</td>
+<td>Em tarefa periódica, o período vai de 1 ms a 2.000 s (padrão de 10 ms) e deve ser maior que a soma dos tempos de execução dos programas. Cada tarefa tem <em>watchdog</em> próprio, com padrão de 500 ms (ROCKWELL AUTOMATION, [s. d.]a).</td>
+</tr>
+<tr>
+<td>Rockwell PLC-5</td>
+<td>Usa tabelas de imagem de entrada e de saída (por exemplo, <code>O:013/01</code>) e executa o programa em varreduras (ROCKWELL AUTOMATION, 1998).</td>
+<td></td>
+</tr>
+<tr>
+<td>WEG WLP (Ladder)</td>
+<td>As linhas são executadas em ordem fixa, a partir da primeira (WEG, 2016).</td>
+<td>A bobina imediata grava a saída no momento da execução, ao contrário da bobina normal, que grava só no fim do ciclo (WEG, 2016).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="atualizacoes-e-comparacao-com-versoes-mais-recentes">Atualizações e comparação com versões mais recentes<a class="headerlink" href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" title="Permanent link">&para;</a></h2>
+<p>Cada fonte citada acima foi comparada com a versão mais recente que encontrei (consulta em 21 nov. 2026). Onde não consegui abrir o documento novo, isso está dito.</p>
+<table>
+<thead>
+<tr>
+<th>Fonte citada</th>
+<th>Versão mais recente encontrada</th>
+<th>Mudança relevante ou observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3, 2ª ed. (2003)</td>
+<td>3ª ed., de 20 fev. 2013 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013), e 4ª ed., de 22 maio 2025 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025).</td>
+<td>A 3ª edição cancela e substitui a de 2003 e é uma extensão compatível dela (AMERICAN NATIONAL STANDARDS INSTITUTE - ANSI, [s. d.]). A 4ª edição inclui cadeias UTF-8 e lista, no Anexo B, os recursos adicionados, removidos ou obsoletos em relação à de 2013 (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025). Não consegui conferir se a definição do <code>R_TRIG</code> mudou, porque o texto da norma é pago.</td>
+</tr>
+<tr>
+<td>Siemens, Programming Guideline V1.6 (12/2018)</td>
+<td>Não encontrei versão posterior do guideline.</td>
+<td>Os valores de monitoração de ciclo vêm dessa versão. Confira na ajuda do TIA Portal em uso.</td>
+</tr>
+<tr>
+<td>Schneider, Programming Guide EIO0000001432.07 (03/2018)</td>
+<td>EIO0000003059, versão 10, de 1 abr. 2026 (SCHNEIDER ELECTRIC, 2026).</td>
+<td>Não abri o PDF da versão 10. Na ajuda online do Machine Expert, a sensibilidade do <em>watchdog</em> é definida como o número de exceções que precisam ocorrer antes de o controlador detectar um erro de aplicação (SCHNEIDER ELECTRIC, [s. d.]a), redação diferente da usada em 2018. Os eventos externos associáveis a uma tarefa, conforme o controlador, são borda de subida em entrada avançada, limiares do HSC, parada do HSC e sincronismo CAN (SCHNEIDER ELECTRIC, [s. d.]b).</td>
+</tr>
+<tr>
+<td>Rockwell, ajuda do Studio 5000, versão 37.00</td>
+<td>Versão 38.00, lançada em set. 2025 (ROCKWELL AUTOMATION, 2025).</td>
+<td>A página "Tasks" da versão 38.00 traz os mesmos valores citados: período de 1 ms a 2.000 s com padrão de 10 ms, <em>watchdog</em> padrão de 500 ms e programas executados na ordem do organizador do controlador (ROCKWELL AUTOMATION, [s. d.]a).</td>
+</tr>
+<tr>
+<td>CODESYS: manual 2.3 (2007) e Hanssen (2015)</td>
+<td>Ajuda online do CODESYS V3.5.22.0 (CODESYS GROUP, [s. d.]a).</td>
+<td>Além de cíclica, livre e por evento, existe tarefa disparada por status (CODESYS GROUP, [s. d.]a). Em uma ajuda baseada no CODESYS V3 hospedada pela ABB, todas as tarefas compartilham uma única imagem de processo, consistente para apenas uma tarefa, e a aplicação deve copiar entradas e saídas para um local seguro em caso de conflito (ABB, [s. d.]).</td>
+</tr>
+<tr>
+<td>WEG, WLP V10.00 (06/2016)</td>
+<td>Não encontrei manual do WLP posterior à V10.00.</td>
+<td>Nenhuma mudança verificada (WEG, 2016).</td>
+</tr>
+<tr>
+<td>PLCopen, Coding Guidelines v1.0 (20 abr. 2016)</td>
+<td>Não encontrei versão posterior.</td>
+<td>Nenhuma mudança verificada (PLCOPEN, 2016).</td>
+</tr>
+<tr>
+<td>Jack, versão 5.1 (2008)</td>
+<td>Versão 6.0: a página de venda da edição antiga a descreve como substituída pela 6.0 (JACK, [s. d.]).</td>
+<td>Não consegui abrir a versão 6.0. A afirmação sobre saída repetida em Ladder vem da versão 5.1 e precisa ser conferida na nova.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="erros-comuns">Erros comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Esperar que a saída mude na própria linha em que foi atribuída.</li>
+<li>Ligar sinais muito rápidos a entradas comuns. Para esses casos existem módulos especiais (BOLTON, 2015).</li>
+<li>Escrever programas com laços que demoram a terminar. O <em>watchdog</em> existe justamente para detectar um programa que não sai de um laço, e quando ele expira o CLP entra em estado de erro (HANSSEN, 2015).</li>
+<li>Escrever a mesma saída em vários pontos do programa (JACK, 2008).</li>
+<li>Escrever uma mesma variável em mais de uma tarefa. A diretriz CP10 da PLCopen manda que cada variável seja escrita em uma única tarefa, porque a escrita concorrente leva a comportamento não determinístico (PLCOPEN, 2016).</li>
+<li>Usar tarefa livre para PID e temporização. Esses casos pedem tarefa cíclica, de ciclo fixo (HANSSEN, 2015).</li>
+</ul>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Um CLP tem ciclo de 30 ms. Qual é a frequência máxima de pulsos que ele consegue detectar, no melhor caso?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Um pulso por ciclo, no máximo: 1 / 0,03 s ≈ 33 Hz. É o mesmo raciocínio do exemplo de Bolton (2015). Na prática, o pulso também precisa durar mais que o ciclo.</p>
+</details>
+</li>
+<li>
+<p>Com o mesmo ciclo de 30 ms, qual é o atraso máximo aproximado entre a mudança de uma entrada e a atuação da saída correspondente?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Pela dedução apresentada acima, cerca de dois ciclos, ou seja, 60 ms, sem contar filtros de entrada e atrasos dos módulos.</p>
+</details>
+</li>
+<li>
+<p>No CODESYS, crie o programa <code>Contador</code>, simule o sensor com uma variável e altere o intervalo da tarefa cíclica. Observe o que acontece com pulsos mais curtos que o intervalo.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Status de validação</p>
+<p>Testado em: não testado. Os exemplos aguardam validação no CODESYS.</p>
+</div>
+<p>Fontes: ver <a href="../../99-referencias/">Referências</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Visão geral">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Visão geral
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../02-iec-61131-3/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 2. IEC 61131-3">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                2. IEC 61131-3
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

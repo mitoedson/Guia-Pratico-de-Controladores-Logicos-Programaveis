@@ -1,0 +1,1628 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guia técnico de controladores lógicos programáveis e automação industrial">
+      
+      
+      
+      
+        <link rel="prev" href="../contatos-e-bobinas/">
+      
+      
+        <link rel="next" href="../contadores/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Temporizadores - Guia Prático de CLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/abnt.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#temporizadores-ton-tof-e-tp" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Guia Prático de CLP" class="md-header__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Guia Prático de CLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Temporizadores
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Guia Prático de CLP" class="md-nav__button md-logo" aria-label="Guia Prático de CLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Guia Prático de CLP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Fundamentos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Fundamentos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-fundamentos/ciclo-de-varredura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ciclo de varredura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-iec-61131-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. IEC 61131-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ladder (LD)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Ladder (LD)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contatos-e-bobinas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contatos e bobinas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporizadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funcionam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como funcionam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como funcionam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#um-bloco-por-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um bloco por temporizador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-ton-atraso-na-partida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: TON, atraso na partida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-tof-exaustor-que-continua-ligado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: TOF, exaustor que continua ligado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-tp-pulso-de-duracao-fixa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: TP, pulso de duração fixa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-pisca-pisca-com-dois-ton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: pisca-pisca com dois TON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporizador-retentivo-rto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporizador retentivo (RTO)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transferencia-e-conversao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferência e conversão de dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-do-programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo do programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deslocamento-e-sequenciadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deslocamento e sequenciadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-fbd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. FBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-logica-sequenciamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lógica e sequenciamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-acionamentos-movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Acionamentos e movimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-instrumentacao-processo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Instrumentação e processo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-comunicacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Comunicação e integração
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-ihm-scada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. IHM e SCADA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-boas-praticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Boas práticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../99-referencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-e-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é e quando usar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funcionam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como funcionam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como funcionam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#um-bloco-por-temporizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um bloco por temporizador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-1-ton-atraso-na-partida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 1: TON, atraso na partida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-2-tof-exaustor-que-continua-ligado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 2: TOF, exaustor que continua ligado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-3-tp-pulso-de-duracao-fixa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 3: TP, pulso de duração fixa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-4-pisca-pisca-com-dois-ton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo 4: pisca-pisca com dois TON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporizador-retentivo-rto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporizador retentivo (RTO)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#equivalencias-entre-plataformas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalências entre plataformas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizações e comparação com versões mais recentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erros comuns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="temporizadores-ton-tof-e-tp">Temporizadores (TON, TOF e TP)<a class="headerlink" href="#temporizadores-ton-tof-e-tp" title="Permanent link">&para;</a></h1>
+<h2 id="o-que-e-e-quando-usar">O que é e quando usar<a class="headerlink" href="#o-que-e-e-quando-usar" title="Permanent link">&para;</a></h2>
+<p>Um temporizador permite mudar o estado de um endereço booleano <strong>depois de um tempo desejado</strong>, contado a partir de uma condição (HANSSEN, 2015). É o "relé de tempo" do CLP, só que em software.</p>
+<p>A IEC 61131-3 define três tipos padrão: <strong>TON</strong> (retardo na energização), <strong>TOF</strong> (retardo na desenergização) e <strong>TP</strong> (pulso) (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003; BOLTON, 2015). Use TON para atrasar uma ação, TOF para manter uma saída ligada por um tempo depois que a condição some, e TP para gerar um pulso de duração fixa.</p>
+<h2 id="como-funcionam">Como funcionam<a class="headerlink" href="#como-funcionam" title="Permanent link">&para;</a></h2>
+<p>Os três blocos têm a mesma interface (HANSSEN, 2015):</p>
+<ul>
+<li><strong>IN:</strong> entrada booleana que dispara o temporizador. TON e TP partem na borda de subida, e TOF parte na borda de descida.</li>
+<li><strong>PT:</strong> tempo programado, do tipo <code>TIME</code>, como <code>T#2m30s</code>.</li>
+<li><strong>Q:</strong> saída booleana. Seu estado depende do tipo de temporizador.</li>
+<li><strong>ET:</strong> tempo decorrido, do tipo <code>TIME</code>. Quando ET chega a PT, Q muda de estado.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>O que acontece com Q</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TON</td>
+<td>Q liga PT depois que IN ficou verdadeira. IN precisa permanecer verdadeira por pelo menos PT.</td>
+<td>Se IN cair antes de PT, Q não liga (HANSSEN, 2015).</td>
+</tr>
+<tr>
+<td>TOF</td>
+<td>Q liga imediatamente quando IN fica verdadeira e desliga PT depois que IN caiu.</td>
+<td>Se IN voltar a ser verdadeira antes de PT, ET é zerado (HANSSEN, 2015).</td>
+</tr>
+<tr>
+<td>TP</td>
+<td>Q liga quando IN sobe e permanece ligada por PT, mesmo que IN caia nesse intervalo.</td>
+<td>ET só zera quando IN e Q estão em nível baixo (HANSSEN, 2015).</td>
+</tr>
+</tbody>
+</table>
+<p>Os diagramas de tempo da norma mostram os três comportamentos (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003). A norma também diz que o efeito de mudar PT durante a contagem, por exemplo zerá-lo para parar um TP, <strong>depende da implementação</strong> (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<p>Na biblioteca padrão do CODESYS descrita pela ABB, o TON começa a contar na borda de subida de IN e reinicia a contagem na borda de descida, com Q falsa quando IN é falsa. O TP mantém ET constante depois de atingir PT (ABB, 2025a; ABB, 2025b).</p>
+<h3 id="um-bloco-por-temporizador">Um bloco por temporizador<a class="headerlink" href="#um-bloco-por-temporizador" title="Permanent link">&para;</a></h3>
+<p>Cada temporizador precisa da <strong>própria instância</strong> do bloco de função, declarada com a mesma sintaxe de uma variável, mas indicando o tipo do bloco (HANSSEN, 2015). O guideline da Siemens recomenda usar os temporizadores e contadores IEC como <strong>multi-instâncias</strong>, em vez de memórias dependentes de hardware (SIEMENS, 2018).</p>
+<h2 id="exemplo-1-ton-atraso-na-partida">Exemplo 1: TON, atraso na partida<a class="headerlink" href="#exemplo-1-ton-atraso-na-partida" title="Permanent link">&para;</a></h2>
+<p>Uma bomba parte 5 s depois do comando. O exemplo é original, no estilo de Hanssen (2015).</p>
+<div class="highlight"><pre><span></span><code><span class="k">PROGRAM</span><span class="w"> </span><span class="n">Atraso</span>
+<span class="k">VAR</span>
+<span class="w">    </span><span class="n">comando</span><span class="w">      </span><span class="n">AT</span><span class="w"> </span><span class="err">%</span><span class="n">IX0</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">BOOL</span><span class="o">;</span>
+<span class="w">    </span><span class="n">atraso_bomba</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">TON</span><span class="o">;</span>
+<span class="w">    </span><span class="n">bomba</span><span class="w">        </span><span class="n">AT</span><span class="w"> </span><span class="err">%</span><span class="n">QX0</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">BOOL</span><span class="o">;</span>
+<span class="n">END_VAR</span>
+
+<span class="n">atraso_bomba</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">comando</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#5</span><span class="n">S</span><span class="p">)</span><span class="o">;</span>
+<span class="n">bomba</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">atraso_bomba</span><span class="o">.</span><span class="n">Q</span><span class="o">;</span>
+</code></pre></div>
+<p>Em Ladder, o bloco TON recebe <code>comando</code> em IN e <code>T#5S</code> em PT, e <code>Q</code> aciona a bobina <code>bomba</code>:</p>
+<div class="highlight"><pre><span></span><code> |   comando     +------------+                           |
+ +----] [--------| IN       Q |------------------( )-----+
+ |               |    TON     |                  bomba    |
+ |    T#5S ------| PT      ET |                           |
+ |               +------------+                           |
+</code></pre></div>
+<p>Se <code>comando</code> ficar ligado por menos de 5 s, <code>bomba</code> nunca liga (HANSSEN, 2015).</p>
+<h2 id="exemplo-2-tof-exaustor-que-continua-ligado">Exemplo 2: TOF, exaustor que continua ligado<a class="headerlink" href="#exemplo-2-tof-exaustor-que-continua-ligado" title="Permanent link">&para;</a></h2>
+<p>O exaustor segue ligado por 10 s depois que a máquina desliga.</p>
+<div class="highlight"><pre><span></span><code><span class="n">atraso_exaustor</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">maquina_ligada</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#10</span><span class="n">S</span><span class="p">)</span><span class="o">;</span>
+<span class="n">exaustor</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">atraso_exaustor</span><span class="o">.</span><span class="n">Q</span><span class="o">;</span>
+</code></pre></div>
+<p><code>exaustor</code> liga junto com <code>maquina_ligada</code> e só desliga 10 s depois da queda, a menos que a máquina volte a ligar antes (HANSSEN, 2015).</p>
+<h2 id="exemplo-3-tp-pulso-de-duracao-fixa">Exemplo 3: TP, pulso de duração fixa<a class="headerlink" href="#exemplo-3-tp-pulso-de-duracao-fixa" title="Permanent link">&para;</a></h2>
+<p>A buzina soa por 500 ms a cada acionamento do botão.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pulso_buzina</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">botao_alarme</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#500</span><span class="n">MS</span><span class="p">)</span><span class="o">;</span>
+<span class="n">buzina</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">pulso_buzina</span><span class="o">.</span><span class="n">Q</span><span class="o">;</span>
+</code></pre></div>
+<p>A saída dura PT mesmo que o botão seja solto antes (HANSSEN, 2015).</p>
+<h2 id="exemplo-4-pisca-pisca-com-dois-ton">Exemplo 4: pisca-pisca com dois TON<a class="headerlink" href="#exemplo-4-pisca-pisca-com-dois-ton" title="Permanent link">&para;</a></h2>
+<p>Bolton (2015) mostra um temporizador de ciclo liga e desliga feito com dois temporizadores de retardo. Esta é uma adaptação em ST, com 5 s ligado e 5 s desligado.</p>
+<div class="highlight"><pre><span></span><code><span class="n">t_desligado</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">t_ligado</span><span class="o">.</span><span class="n">Q</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#5</span><span class="n">S</span><span class="p">)</span><span class="o">;</span><span class="w">   </span><span class="c1">// conta o tempo desligado</span>
+<span class="n">t_ligado</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">t_desligado</span><span class="o">.</span><span class="n">Q</span><span class="o">,</span><span class="w"> </span><span class="n">PT</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">T</span><span class="sc">#5</span><span class="n">S</span><span class="p">)</span><span class="o">;</span><span class="w">       </span><span class="c1">// conta o tempo ligado</span>
+<span class="n">pisca</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">t_desligado</span><span class="o">.</span><span class="n">Q</span><span class="o">;</span>
+</code></pre></div>
+<p>Funcionamento:</p>
+<ol>
+<li>Com <code>t_ligado.Q</code> falso, <code>t_desligado</code> conta 5 s. A lâmpada está desligada.</li>
+<li>Ao fim dos 5 s, <code>t_desligado.Q</code> liga a lâmpada e dispara <code>t_ligado</code>.</li>
+<li>Passados mais 5 s, <code>t_ligado.Q</code> fica verdadeiro, <code>t_desligado</code> perde a entrada e desliga a lâmpada, e o ciclo recomeça.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Dependência da ordem de execução</p>
+<p>Este circuito usa o valor de <code>t_ligado.Q</code> calculado no ciclo anterior para alimentar <code>t_desligado</code>. O funcionamento depende da execução sequencial descrita no <a href="../../01-fundamentos/ciclo-de-varredura/">ciclo de varredura</a>.</p>
+</div>
+<h2 id="temporizador-retentivo-rto">Temporizador retentivo (RTO)<a class="headerlink" href="#temporizador-retentivo-rto" title="Permanent link">&para;</a></h2>
+<p>O TON zera ao perder a entrada. O <strong>temporizador retentivo</strong> acumula o tempo enquanto habilitado e <strong>mantém o acumulado</strong> quando a habilitação cai. Ele só é zerado por uma instrução de reset (BOLTON, 2015).</p>
+<p>No manual do PLC-5, o RTO preserva o valor acumulado mesmo quando o degrau fica falso, o processador muda para modo Program, falha ou perde energia. A contagem continua quando o processador volta ou o degrau volta a ser verdadeiro, e o bit de concluído (<code>.DN</code>) só é zerado pela instrução RES (ROCKWELL AUTOMATION, 1998).</p>
+<h2 id="equivalencias-entre-plataformas">Equivalências entre plataformas<a class="headerlink" href="#equivalencias-entre-plataformas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Plataforma</th>
+<th>Temporizadores</th>
+<th>Unidade e estrutura</th>
+<th>Observações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3 / CODESYS</td>
+<td>TON, TOF, TP</td>
+<td>Entradas IN e PT, saídas Q e ET, tempo do tipo <code>TIME</code> (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</td>
+<td>A ajuda da ABB documenta os blocos TON e TP da biblioteca padrão do CODESYS (ABB, 2025a; ABB, 2025b).</td>
+</tr>
+<tr>
+<td>Rockwell PLC-5</td>
+<td>TON, TOF, RTO</td>
+<td>Palavra de controle com bits EN, TT e DN, preset e acumulado de 16 bits, base de tempo de 1 s ou 0,01 s (ROCKWELL AUTOMATION, 1998).</td>
+<td>Com base de 1 s, o acumulado vai até 32.767 intervalos, cerca de 9,1 horas (ROCKWELL AUTOMATION, 1998).</td>
+</tr>
+<tr>
+<td>Rockwell Logix (Studio 5000)</td>
+<td>TON, RTO e outros</td>
+<td>Estrutura <code>TIMER</code> com <code>.PRE</code> e <code>.ACC</code> em milissegundos e bits <code>.EN</code>, <code>.TT</code> e <code>.DN</code> (ROCKWELL AUTOMATION, [s. d.]f).</td>
+<td>A TON é não retentiva e pode ser pausada ao se ligar o bit <code>.DN</code> (ROCKWELL AUTOMATION, [s. d.]f). A base de tempo é sempre de 1 ms (ROCKWELL AUTOMATION, [s. d.]g).</td>
+</tr>
+<tr>
+<td>WEG WLP</td>
+<td>TON</td>
+<td>Entrada IN, saída Q, argumentos PT e ET. O PT constante vai até 30.000 ms (WEG, 2016).</td>
+<td>Com IN em 0, Q fica em 0 e o ET <strong>permanece inalterado</strong>. Com IN em 1, o ET é zerado e passa a contar (WEG, 2016).</td>
+</tr>
+<tr>
+<td>Siemens S7-1200/1500</td>
+<td>TP, TON, TOF</td>
+<td>Instâncias como multi-instância (SIEMENS, 2018).</td>
+<td>Em programas de segurança, o guideline manda usar TP, TON e TOF o mínimo possível, porque cada um exige blocos adicionais (SIEMENS, 2018).</td>
+</tr>
+</tbody>
+</table>
+<p>Uma diferença importante: no WLP, o ET <strong>não zera</strong> quando IN cai, ao contrário do que a norma mostra para o TON (WEG, 2016; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</p>
+<p>Siemens e Schneider: detalhes dos blocos a completar.</p>
+<h2 id="atualizacoes-e-comparacao-com-versoes-mais-recentes">Atualizações e comparação com versões mais recentes<a class="headerlink" href="#atualizacoes-e-comparacao-com-versoes-mais-recentes" title="Permanent link">&para;</a></h2>
+<p>Consulta em 21 nov. 2026.</p>
+<table>
+<thead>
+<tr>
+<th>Fonte citada</th>
+<th>Versão mais recente encontrada</th>
+<th>Mudança relevante ou observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 61131-3, 2ª ed. (2003)</td>
+<td>3ª ed. (2013) e 4ª ed. (2025) (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2013; INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2025).</td>
+<td>A PLCopen informa que o Anexo B da 3ª edição lista novos tipos de dados elementares, contatos de comparação no Ladder e a <strong>obsolescência da Instruction List (IL)</strong> (PLCOPEN, [s. d.]). Não consegui conferir se mudou o comportamento de TP, TON e TOF, porque o texto da norma é pago.</td>
+</tr>
+<tr>
+<td>Rockwell, manual do PLC-5 (1998)</td>
+<td>Ajuda do Studio 5000 Logix Designer, versão 38.00 (ROCKWELL AUTOMATION, [s. d.]f; ROCKWELL AUTOMATION, [s. d.]g).</td>
+<td>O temporizador deixou de ter base de 1 s ou 0,01 s: a base é <strong>sempre de 1 ms</strong>, e <code>.PRE</code> e <code>.ACC</code> são <code>DINT</code>. A versão 38.00 traz também a estrutura <code>TIMER_T</code>, com <code>.ACC</code> e <code>.PRE</code> do tipo <code>TIME</code> e fidelidade de microssegundo (ROCKWELL AUTOMATION, [s. d.]f). O tempo acumulado é calculado pela diferença entre o horário atual e o da última varredura (ROCKWELL AUTOMATION, [s. d.]f).</td>
+</tr>
+<tr>
+<td>CODESYS: manual 2.3 (2007) e Hanssen (2015)</td>
+<td>Biblioteca padrão 2.9.0, na ajuda da ABB (ABB, 2025a; ABB, 2025b).</td>
+<td>Os blocos TON e TP continuam documentados na biblioteca padrão 2.9.0, com IN, PT, Q e ET. Não comparei o comportamento com o do CODESYS 2.3.</td>
+</tr>
+<tr>
+<td>WEG, WLP V10.00 (06/2016)</td>
+<td>Não encontrei manual do WLP posterior.</td>
+<td>Nenhuma mudança verificada (WEG, 2016).</td>
+</tr>
+<tr>
+<td>Siemens, Programming Guideline V1.6 (12/2018)</td>
+<td>Não encontrei versão posterior do guideline.</td>
+<td>Confira na ajuda do TIA Portal em uso.</td>
+</tr>
+<tr>
+<td>Petruzella, 4ª ed. (2014)</td>
+<td>Não verifiquei se existe edição posterior.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="erros-comuns">Erros comuns<a class="headerlink" href="#erros-comuns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Compartilhar a mesma instância de temporizador em mais de um ponto do programa. Cada temporizador precisa da sua (HANSSEN, 2015).</li>
+<li>Esperar que um TON ligue com uma condição que dura menos que PT. Nesse caso Q nunca liga (HANSSEN, 2015).</li>
+<li>Alterar PT durante a contagem esperando um comportamento específico. A norma deixa isso a cargo da implementação (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003).</li>
+<li>Usar RTO sem uma instrução de reset. O bit de concluído só desliga com o RES (ROCKWELL AUTOMATION, 1998).</li>
+<li>Deixar um temporizador Logix em uma parte do código que pode deixar de ser executada, como sub-rotina ou trecho entre JMP e LBL. A ajuda do RTOR alerta que o temporizador precisa ser varrido pelo menos a cada 69 minutos enquanto roda, ou o valor acumulado fica incorreto (ROCKWELL AUTOMATION, [s. d.]h).</li>
+<li>Supor que o ET zera quando IN cai em qualquer plataforma. No WLP ele permanece inalterado (WEG, 2016).</li>
+<li>Esquecer a diferença de unidade: PLC-5 usa base de 1 s ou 0,01 s, e Logix usa milissegundos (ROCKWELL AUTOMATION, 1998; ROCKWELL AUTOMATION, [s. d.]g).</li>
+</ul>
+<h2 id="exercicios">Exercícios<a class="headerlink" href="#exercicios" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Um TON tem <code>PT := T#3S</code>. <code>IN</code> fica verdadeira por 2 s, cai, e depois fica verdadeira por 4 s. Quando <code>Q</code> liga?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>No primeiro pulso, <code>Q</code> não liga, porque <code>IN</code> durou menos que PT. No segundo, <code>Q</code> liga 3 s depois da subida e permanece ligada até <code>IN</code> cair (INTERNATIONAL ELECTROTECHNICAL COMMISSION, 2003; HANSSEN, 2015).</p>
+</details>
+</li>
+<li>
+<p>Um TOF tem <code>PT := T#5S</code>. <code>IN</code> fica verdadeira por 10 s e cai. Se <code>IN</code> voltar a ser verdadeira 2 s depois de cair, o que acontece com <code>Q</code>?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p><code>Q</code> permanece ligada, e o tempo decorrido é zerado quando <code>IN</code> volta a ser verdadeira (HANSSEN, 2015).</p>
+</details>
+</li>
+<li>
+<p>Um TP tem <code>PT := T#2S</code>. <code>IN</code> fica verdadeira por 0,5 s. Por quanto tempo <code>Q</code> fica ligada?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>Por 2 s, mesmo com <code>IN</code> caindo antes (HANSSEN, 2015).</p>
+</details>
+</li>
+<li>
+<p>No Exemplo 4, o que acontece se os dois <code>PT</code> forem diferentes, 2 s e 8 s?</p>
+<details class="note">
+<summary>Resposta</summary>
+<p>A lâmpada fica desligada pelo <code>PT</code> de <code>t_desligado</code> e ligada pelo <code>PT</code> de <code>t_ligado</code>, por dedução do funcionamento descrito. Teste no CODESYS.</p>
+</details>
+</li>
+<li>
+<p>No CODESYS, implemente os Exemplos 1 a 4 e observe <code>ET</code> de cada instância no modo de simulação.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Status de validação</p>
+<p>Testado em: não testado. Os exemplos aguardam validação no CODESYS. Os diagramas em texto são originais.</p>
+</div>
+<p>Fontes: ver <a href="../../99-referencias/">Referências</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../contatos-e-bobinas/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Contatos e bobinas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Contatos e bobinas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../contadores/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Contadores">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Contadores
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
